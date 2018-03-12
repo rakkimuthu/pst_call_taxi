@@ -1,7 +1,41 @@
 <?php 
 	include_once 'header.php';
- ?>
+    include_once '../model/index.php'; 
+    $drivers = $wpdb->get_results("SELECT * FROM drivers",ARRAY_A);
 
-<h3 class="text-center">Drivers</h3>
+?>
 
- <?php include_once 'footer.php'; ?>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="panel panel-info">
+      		<div class="box box-info">
+        		<div class="box-header">
+	        	<h4>
+	          	 <center>Drivers List</center>
+	        	</h4>
+                <a href="add_drivers.php" class="btn btn-info pull-right add-vehicle">Add</a>
+			    </div>
+	            <div class="box-body">
+		            <div class="table-responsive">
+		             	<table  class="table table-bordered table-striped view_entry_table">
+		                <thead>
+			                <tr>
+			                   <th>Driver Name</th>
+			                   <th>Phone Number</th>
+			                   <th>Vehicle Number</th>
+			                   <th>Action</th>
+			                </tr>
+		                </thead>
+		                <body>
+		                	<?php
+		                	foreach ($drivers as $key => $driver) {?>
+		                	<tr>
+		                		<td><?php echo $driver['driver_name']?></td>
+		                		<td><?php echo $driver['phone_number']?></td>
+		                		<td><?php echo $driver['vehicle_number']?></td>
+		                		<td>
+		                			<a href="edit_drivers.php?id=<?php echo $driver['id']?>"><button type="button" class="btn btn-warning">edit<a/></button>
+		                			<button class="btn btn-danger"><a href="../controller/delete_driver_controller.php?id=<?php echo $driver['id']?>">delete</a></button>	
+		                	</tr>	
+		                	<?php } ?>
+		                </body>

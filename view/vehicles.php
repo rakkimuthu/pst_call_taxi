@@ -25,7 +25,7 @@
 			                   <th>Insurance-Renewal</th>
 			                   <th>FC-Renewal</th>
 			                   <th>Tax-Renewal</th>
-			                   <th>Remain_date</th>
+			                   <th>Rc-Renewal</th>
 			                   <th>Action</th>
 			                </tr>
 		                </thead>
@@ -34,10 +34,59 @@
 					<tr>
 						<td><?php echo $vehicle['vehicle_number'] ?></td>
 						<td><?php echo $vehicle['model_number'] ?></td>
-						<td><?php echo $vehicle['insurance'] ?></td>
-						<td><?php echo $vehicle['fc_renewal'] ?></td>
-						<td><?php echo $vehicle['tax_date'] ?></td>
-						<td><?php echo $vehicle['remain_date'] ?></td> 
+						<td><?php 								
+							$datestr=$vehicle['insurance'];//insurance date
+							$date=strtotime($datestr);//Converted to a PHP date (a second count)
+							$diff=$date-time();//time returns current time in seconds
+							$days=floor($diff/(60*60*24));//seconds/minute*minutes/hour*hours/day)
+							if ($days>$vehicle['remain_date']) {
+								echo "$days Days Remaining<br />";
+							}
+							else{
+								echo "<p style='color: #f44242'>$days Days Overdue<br /></p>";
+							}?>
+						</td>
+						<td><?php
+							$datestr=$vehicle['fc_renewal'];//insurance date
+							$date=strtotime($datestr);//Converted to a PHP date (a second count)
+							$diff=$date-time();//time returns current time in seconds
+							$days=floor($diff/(60*60*24));//seconds/minute*minutes/hour*hours/day)
+							if ($days>$vehicle['remain_date']) {
+								echo "$days Days Remaining<br />";
+							}
+							else{
+								echo "<p style='color: #f44242'>$days Days Overdue<br /></p>";
+							}?>  
+						</td>
+						<td><?php
+							$datestr=$vehicle['tax_date'];//insurance date
+							$date=strtotime($datestr);//Converted to a PHP date (a second count)
+							$diff=$date-time();//time returns current time in seconds
+							$days=floor($diff/(60*60*24));//seconds/minute*minutes/hour*hours/day)
+							if ($days>$vehicle['remain_date']) {
+								echo "$days Days Remaining<br />";
+							}
+							else{
+								echo "<p style='color: #f44242'>$days Days Overdue<br /></p>";
+							}?>  
+						</td>
+						<td><?php
+							$datestr=$vehicle['rc_date'];//insurance date
+							$date=strtotime($datestr);//Converted to a PHP date (a second count)
+							$diff=$date-time();//time returns current time in seconds
+							$days=floor($diff/(60*60*24));//seconds/minute*minutes/hour*hours/day)
+							if ($days>$vehicle['remain_date']) {
+								echo "$days Days Remaining<br />";
+							}
+							else{
+								echo "<p style='color: #f44242'>$days Days Overdue<br /></p>";
+							}?>  
+						</td>
+
+
+
+
+						
 						<td>
 							<a href="edit_vehicles.php?id=<?php echo $vehicle['id']?>"><button type="button" class="btn btn-warning ">edit</button>
 							 <a href="../controller/delete_vehicle_controller.php?id=<?php echo $vehicle['id'] ?>"><button type="button" class="btn btn-danger">delete</button> 

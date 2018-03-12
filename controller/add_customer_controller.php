@@ -1,4 +1,4 @@
-	<?php
+<?php
 echo "<pre>";
 print_r($_POST);
 // print_r(implode(',', $_POST['phone_number']));

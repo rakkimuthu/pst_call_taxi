@@ -28,29 +28,35 @@
 						<div class="form-group">
 								<label for="inputEmail3" class="col-sm-2 control-label">Insurance-Date</label>  
 							<div class="col-sm-5">
-								<input type="date" class="form-control" id="inputEmail3" placeholder="Insuarance" name="insurance" value="<?php echo $vehicles_list[0]['insurance']?>>
+								<input type="date" class="form-control" id="inputEmail3" placeholder="Insuarance" name="insurance" value="<?php echo $vehicles_list[0]['insurance']?>">
 							</div>
 						</div> 
 						<div class="form-group">
 								<label for="inputEmail3" class="col-sm-2 control-label">FC-Renewal</label>  
 							<div class="col-sm-5">
-								<input type="date" class="form-control" id="inputEmail3" placeholder="FC" name="fc_renewal" value="<?php echo $vehicles_list[0]['fc_renewal']?>>
+								<input type="date" class="form-control" id="inputEmail3" placeholder="FC" name="fc_renewal" value="<?php echo $vehicles_list[0]['fc_renewal']?>">
 							</div>
 						</div> 
 						<div class="form-group">
 								<label for="inputEmail3" class="col-sm-2 control-label">Tax Renewal</label>  
 							<div class="col-sm-5">
-								<input type="date" class="form-control" id="inputEmail3" placeholder="tax" name="tax_date" value="<?php echo $vehicles_list[0]['tax_date']?>>
+								<input type="date" class="form-control" id="inputEmail3" placeholder="tax" name="tax_date" value="<?php echo $vehicles_list[0]['tax_date']?>">
 							</div>
-						</div> 
+						</div>
+						<div class="form-group">
+								<label for="inputEmail3" class="col-sm-2 control-label">Rc Renewal</label>  
+							<div class="col-sm-5">
+								<input type="date" class="form-control" id="inputEmail3" placeholder="Remain Renewal Date" name="rc_date" value="<?php echo $vehicles_list[0]['rc_date']?>">
+							</div>
+						</div>  
 						<div class="form-group">
 								<label for="inputEmail3" class="col-sm-2 control-label">Remain Before Day</label>  
 							<div class="col-sm-5">
-								<input type="number" class="form-control" id="inputEmail3" placeholder="Remain Renewal Date" name="remain_date" value="<?php echo $vehicles_list[0]['remain_date']?>>
+								<input type="number" class="form-control" id="inputEmail3" placeholder="Remain Renewal Date" name="remain_date" value="<?php echo $vehicles_list[0]['remain_date']?>">
 							</div>
 						</div> 
 					</div>
-					<div class="box-footer">
+					<div class="box-footer col-sm-7">
 						<button type="submit" id="add_new_vehicle"  class="btn btn-info pull-right">Add Vehicle</button>
 					</div>
 				</form>
