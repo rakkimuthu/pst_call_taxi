@@ -9,7 +9,7 @@
         <div class="panel panel-info">
            <div class="box box-info">
                <div class="box-header">
-               	<h4>Add Vehicle List<h4>
+               	<h4>Edit Vehicle<h4>
 				<form class="form-horizontal"  method="post" action="../controller/update_vehicle_controller.php?id=<?php echo $vehicles_list[0]['id']?>"">
 					<div class="box-body">
 						<div class="form-group ">
@@ -57,7 +57,7 @@
 						</div> 
 					</div>
 					<div class="box-footer col-sm-7">
-						<button type="submit" id="add_new_vehicle"  class="btn btn-info pull-right">Add Vehicle</button>
+						<button type="submit" id="add_new_vehicle"  class="btn btn-info pull-right">Update Vehicle</button>
 					</div>
 				</form>
 			    </div>

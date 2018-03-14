@@ -1,5 +1,7 @@
 <?php 
 	include_once 'header.php';
+	include_once '../model/index.php';
+	$vehicles = $wpdb->get_results("SELECT * FROM vehicles",ARRAY_A);
  ?>
 
 <!-- Add Vehicle Model -->
@@ -27,7 +29,12 @@
 						<div class="form-group">
 								<label for="inputEmail3" class="col-sm-2 control-label">Vehicle Number</label>  
 							<div class="col-sm-5">
-								<input type="text" class="form-control" id="inputEmail3" placeholder="Vehicle Number" name="vehicle_number">
+							<select name="vehicle_id" class="form-control" required>
+								<option value="">Select Vehicle</option>
+								<?php foreach ($vehicles as $key => $vehicle) { ?>
+								<option value="<?php echo $vehicle['id'] ?>"><?php echo $vehicle['vehicle_number'] ?></option>            
+							<?php } ?>  
+						    </select>
 							</div>
 						</div> 
 						 

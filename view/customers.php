@@ -1,5 +1,4 @@
- 
-<?php
+ <?php
  
   include_once 'header.php';
   include_once '../model/index.php';
@@ -33,61 +32,35 @@ $customer_list = $wpdb->get_results("SELECT * FROM customer ORDER BY customer_na
                 <tbody>
                 	<?php 
                     foreach ($customer_list as $key => $value) { 
-                  	// print_r($value);
                   	$var1 = unserialize($value['phone_number']);
-					 // print_r ($var1);
 					
 	              	?>
 	                  <tr>
 	                      <td><?php echo $value['customer_name'] ?></td>
 
 	                      <td>
-	                      <?php foreach ($var1 as $key => $value1) {
-	                      	print_r("$value1".",");
-	                      } ?>
+	                      <?php echo implode(",", $var1); ?>
 	                      </td>
 	                        
 
-		                    <td><a href="edit_customer.php?id=<?php echo $value['id']?>">  <button type='button' class='btn btn-warning'>Edit</button></a>
+		                    <td><a href="edit_customer.php?id=<?php echo $value['id']?>"><button type="button" class="btn btn-warning">Edit</button></a>
 	                           <a href="../controller/delete_customer_controller.php?id=<?php echo $value['id']?>">  <button type='button' class='btn btn-danger'>Delete</button></a>
-	                           </td>
-	                      
+                       </td>
 	                  </tr>
 	               <?php } ?>
-             
-
-
                 </tbody>
               </table>
             </div>
           </div>
+
+
+      <?php }else{
+          echo "<blockquote><p>No Customer till now added!!</p></blockquote>";
+      } ?>
       </div>
     </div>
   </div>
 </div>
 
- <!-- Delete Customer -->
-<!-- <div class="modal fade" id="delete_model" role="dialog">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Are You Sure ! You Want to Delete Customer </h4>
-      </div>
-      <div class="modal-body">
-          <form action="../controller/delete_customer_controller.php">
-            <button type="submit" id="delete_customer" class="btn btn-danger" data-dismiss="modal">Delete </button>
-            <button type="button" style="float: right;" class="btn btn-default" data-dismiss="modal">Close</button>
-          </form>
-      </div>
-    </div>
-  </div>
-</div>
- -->
-
-
-<?php }else{?>
-    <blockquote><p>No Customer till now added!!</p></blockquote>
-<?php } ?>
 
 <?php include_once 'footer.php'; ?>

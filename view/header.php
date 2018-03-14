@@ -15,8 +15,8 @@
   <!-- header -->
   <header class="main-header">
     <a href="index.html" class="logo">
-      <span class="logo-mini"><b>Template</b>Small</span>
-      <span class="logo-lg"><b>template</b>small</span>
+      <span class="logo-mini"><b>PST</b>Call Taxi</span>
+      <span class="logo-lg"><b>PST Call Taxi</b></span>
     </a>
     <nav class="navbar navbar-static-top">
       <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
@@ -27,13 +27,13 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="../img/avatar5.png" class="user-image" alt="User Image">
-              <span class="hidden-xs">Alexander Pierce</span>
+              <span class="hidden-xs">Mohan</span>
             </a>
             <ul class="dropdown-menu">
               <li class="user-header">
                 <img src="../img/avatar5.png" class="img-circle" alt="User Image">
                 <p>
-                  Alexander Pierce
+                  Mohan
                 </p>
               </li>
               <li class="user-footer">
@@ -64,7 +64,8 @@
               <li><a href="customers.php"><i class="fa fa-circle-o text-yellow"></i> <span>Customers</span></a></li>
               <li><a href="vehicles.php"><i class="fa fa-circle-o text-purple"></i> <span>Vehicles</span></a></li>
               <li><a href="drivers.php"><i class="fa fa-circle-o text-yellow"></i> <span>Drivers</span></a></li>
-              <li><a href="pricing.php"><i class="fa fa-circle-o text-yellow"></i> <span>Pricing</span></a></li>
+              <li><a href="pricing.php"><i class="fa fa-circle-o text-yellow"></i> <span>Pricing Master</span></a></li>
+              <li><a href="add_pricing.php"><i class="fa fa-circle-o text-yellow"></i> <span>Add Pricing</span></a></li>
             </ul>
           </li>
           <li><a href="entry.php"><i class="fa fa-circle-o text-green"></i> <span>Entry</span></a></li>
@@ -75,7 +76,7 @@
               <span>Report</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
-              </span>
+              </span> 
             </a>
             <ul class="treeview-menu" style="display: none;">
               <li><a href="vehicle_wise_report.php"><i class="fa fa-circle-o text-purple"></i> <span>Vehicle Wise Report</span></a></li>

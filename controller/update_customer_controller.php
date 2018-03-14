@@ -1,7 +1,5 @@
  <?php 
  include_once '../model/index.php';
-echo "<pre>";
-print_r($_POST);
 $phone_number = serialize($_POST['phone_number']);
 $customer_data=array('customer_name'=>$_POST['customer_name'],'phone_number'=>$phone_number);
 $where = array('id'=>$_GET['id']);
@@ -11,7 +9,6 @@ if ($update) {
 }else{
 	header("location:../view/customers.php?status=error");
 }
-
 ?>
 
  
