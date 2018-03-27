@@ -11,6 +11,12 @@
 				<form class="form-horizontal"  method="post" action="../controller/add_vehicle_controller.php">
 					<div class="box-body">
 						<div class="form-group ">
+								<label for="inputEmail3" class="col-sm-2 control-label">Vehicle Name</label>
+							<div class="col-sm-5">
+								<input type="text" class="form-control" id="inputEmail3" placeholder="Vehicle Name" name="vehicle_name" required>
+							</div>
+						</div>  
+						<div class="form-group ">
 								<label for="inputEmail3" class="col-sm-2 control-label">Vehicle Number</label>
 							<div class="col-sm-5">
 								<input type="text" class="form-control" id="inputEmail3" placeholder="Vehicle Number" name="vehicle_number" required>

@@ -8,7 +8,8 @@ $vechicle_id  = $_POST['id'];
 $check_price_amount = $wpdb->get_results("SELECT * FROM pricing_master WHERE vechicle_id=$vechicle_id",ARRAY_A)[0];
 unset($column_name[0]);
 unset($column_name[1]);
-
+unset($column_name[2]);
+unset($column_name[3]);
 if ($check_price_amount['id']) { ?>
 <form action="../controller/update_vechicle_price.php" method="post">
 	<input type="hidden" name="vechicle_id" value="<?php echo $vechicle_id ?>">
@@ -21,14 +22,27 @@ if ($check_price_amount['id']) { ?>
 				</tr>
 			</thead>
 			<tbody>
-				<?php foreach ($column_name as $key => $value) {
+				<?php 
+				echo "<tr>
+					<td>Additional Rate/hour</td>
+					<td><input type='number' name='additional_rate' value='".$check_price_amount['additional_rate']."'></td>
+	   			</tr>
+	   			<tr>
+					<td>Additional Rate/KM</td>
+					<td><input type='number' name='additional_rate_km' value='".$check_price_amount['additional_rate_km']."'></td>
+	   			</tr>";
+
+				foreach ($column_name as $key => $value) {
 				// echo $value['column_Name'];
 				echo "<tr>
 				<td>". $value['column_Name']."</td>
 				<td><input type='number' name='". $value['column_Name']."' value='".$check_price_amount[$value['column_Name']]."'></td>
 
 				</tr>";
-				} ?>
+				} 
+
+
+	   			?>
 			</tbody>
 		</table>
 	</div>
@@ -48,13 +62,26 @@ if ($check_price_amount['id']) { ?>
 			</tr>
 		</thead>
 	   <tbody>
-	   		<?php foreach ($column_name as $key => $value) {
+	   		<?php 
+	   		echo "<tr>
+   					<td>Additional Rate/hour</td>
+   					<td><input type='number' name='additional_rate'></td>
+	   			</tr>
+	   			<tr>
+   					<td>Additional Rate/KM</td>
+   					<td><input type='number' name='additional_rate_km'></td>
+	   			</tr>";
+
+
+	   		foreach ($column_name as $key => $value) {
 	   			// echo $value['column_Name'];
 	   			echo "<tr>
    					<td>". $value['column_Name']."</td>
    					<td><input type='number' name='". $value['column_Name']."'></td>
 	   			</tr>";
-	   		} ?>
+	   		} 
+
+	   		?>
 	   </tbody>
 	</table>
 </div>

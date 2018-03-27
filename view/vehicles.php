@@ -17,9 +17,10 @@
 			    </div>
 	            <div class="box-body">
 		            <div class="table-responsive">
-		             	<table  class="table table-bordered table-striped view_entry_table">
+		             	<table  class="table table-bordered table-striped view_entry_table"  id="view_table_detail">
 		                <thead>
 			                <tr>
+			                   <th>Vehicle Name</th>
 			                   <th>Vehicle Number</th>
 			                   <th>Model Number</th>
 			                   <th>Insurance-Renewal</th>
@@ -32,6 +33,7 @@
 		                <body>
 		                	<?php foreach ($vehicles as $key => $vehicle) {	?>
 					<tr>
+						<td><?php echo $vehicle['vehicle_name'] ?></td>
 						<td><?php echo $vehicle['vehicle_number'] ?></td>
 						<td><?php echo $vehicle['model_number'] ?></td>
 						<td><?php 								

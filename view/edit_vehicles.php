@@ -13,6 +13,12 @@
 				<form class="form-horizontal"  method="post" action="../controller/update_vehicle_controller.php?id=<?php echo $vehicles_list[0]['id']?>"">
 					<div class="box-body">
 						<div class="form-group ">
+								<label for="inputEmail3" class="col-sm-2 control-label">Vehicle Name</label>
+							<div class="col-sm-5">
+								<input type="text" class="form-control" id="inputEmail3" placeholder="Vehicle Name" name="vehicle_name" value="<?php echo $vehicles_list[0]['vehicle_name']?>" required>
+							</div>
+						</div>
+						<div class="form-group ">
 								<label for="inputEmail3" class="col-sm-2 control-label">Vehicle Number</label>
 							<div class="col-sm-5">
 								<input type="text" class="form-control" id="inputEmail3" placeholder="Vehicle Number" name="vehicle_number" value="<?php echo $vehicles_list[0]['vehicle_number']?>" required>

@@ -21,7 +21,7 @@ $customer_list = $wpdb->get_results("SELECT * FROM customer ORDER BY customer_na
         <?php if(!empty($customer_list)){ ?>
           <div class="box-body">
             <div class="table-responsive">
-              <table  class="table table-bordered table-striped">
+              <table  class="table table-bordered table-striped" id="view_table_detail">
                 <thead>
                   <tr>
                     <th>Name</th>

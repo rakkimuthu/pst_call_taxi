@@ -16,7 +16,7 @@
 					        <select class="form-control" required="" name="vehicle_id" id="vehicle_id">
 					        	<option value="">Select Vehicle</option>
 					        	<?php foreach ($vehicle_number as $key => $value) {
-					        		echo "<option value='".$value['id']."'>".$value['vehicle_number']."</option>";
+					        		echo "<option value='".$value['id']."'>".$value['vehicle_name']."</option>";
 					        	} ?>
 					        </select>
 						</div>

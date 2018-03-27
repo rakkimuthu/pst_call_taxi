@@ -9,6 +9,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="../css/AdminLTE.min.css">
   <link rel="stylesheet" href="../css/_all-skins.min.css">
+  <link rel="stylesheet" href="../css/jquery-ui.css">
+
+  <link rel="stylesheet" href="../js/datatable/dataTables.bootstrap.min.css">
+  <link rel="stylesheet" href="../js/datatable/responsive.bootstrap.min.css">
+ 
 </head>
 <body class="hold-transition sidebar-mini skin-black-light">
 <div class="wrapper">
@@ -79,7 +84,7 @@
               </span> 
             </a>
             <ul class="treeview-menu" style="display: none;">
-              <li><a href="vehicle_wise_report.php"><i class="fa fa-circle-o text-purple"></i> <span>Vehicle Wise Report</span></a></li>
+              <li><a href="vehicle_report.php"><i class="fa fa-circle-o text-purple"></i> <span>Vehicle Wise Report</span></a></li>
               <li><a href="customer_wise_report.php"><i class="fa fa-circle-o text-yellow"></i> <span>Customer Wise Report</span></a></li>
             </ul>
           </li>        

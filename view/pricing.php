@@ -4,6 +4,9 @@
 	$column_names = $wpdb->get_results("SELECT column_name FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'pricing_master'  ORDER BY ORDINAL_POSITION",ARRAY_A);
   unset($column_names['0']);
   unset($column_names['1']);
+  unset($column_names['2']);
+   unset($column_names['3']);
+
 	
  ?>
 

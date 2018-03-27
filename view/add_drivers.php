@@ -32,7 +32,7 @@
 							<select name="vehicle_id" class="form-control" required>
 								<option value="">Select Vehicle</option>
 								<?php foreach ($vehicles as $key => $vehicle) { ?>
-								<option value="<?php echo $vehicle['id'] ?>"><?php echo $vehicle['vehicle_number'] ?></option>            
+								<option value="<?php echo $vehicle['id'] ?>"><?php echo $vehicle['vehicle_name'] ?></option>            
 							<?php } ?>  
 						    </select>
 							</div>

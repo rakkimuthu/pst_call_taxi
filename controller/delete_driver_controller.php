@@ -2,10 +2,9 @@
   include_once '../model/index.php';
 $id=$_GET['id'];
 $where = array('id'=>$id);
-$delete = $wpdb->delete('drivers',$where);
-if($delete){
+if($wpdb->delete('drivers',$where)){
 	header("location:../view/drivers.php?status=success");
 
 }else{
-	echo "error";
+	header("location:../view/drivers.php?status=error");
 }

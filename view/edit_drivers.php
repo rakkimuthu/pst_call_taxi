@@ -38,7 +38,7 @@
 											echo " selected";
 									}?>
 
-									><?php echo $vehicle['vehicle_number'] ?></option>            
+									><?php echo $vehicle['vehicle_name'] ?></option>            
 							<?php } ?>  
 						    </select>
 							</div>

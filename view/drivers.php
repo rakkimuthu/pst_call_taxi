@@ -17,7 +17,7 @@
 			    </div>
 	            <div class="box-body">
 		            <div class="table-responsive">
-		             	<table  class="table table-bordered table-striped view_entry_table">
+		             	<table  class="table table-bordered table-striped view_entry_table"  id="view_table_detail">
 			                <thead>
 				                <tr>
 				                   <th>Driver Name</th>
@@ -32,7 +32,7 @@
 			                	<tr>
 			                		<td><?php echo $driver['driver_name']?></td>
 			                		<td><?php echo $driver['phone_number']?></td>
-			                		<td><?php echo get_vehicle_number($driver['vehicle_id'],$wpdb)['vehicle_number'] ?></td>
+			                		<td><?php echo get_vehicle_number($driver['vehicle_id'],$wpdb)['vehicle_name'] ?></td>
 			                		<td>
 			                			<a href="edit_drivers.php?id=<?php echo $driver['id']?>"><button type="button" class="btn btn-warning">Edit</button></a>
 			                			<button class="btn btn-danger"><a href="../controller/delete_driver_controller.php?id=<?php echo $driver['id']?>">Delete</a></button>
