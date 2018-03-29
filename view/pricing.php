@@ -22,11 +22,11 @@
 				<div class="box-body">
 					<div class="form-group">
 						<label>Hours</label>
-						<input type="number" class="form-control" id="" placeholder="Enter The Hours" name="hours" required="">
+						<input type="text" class="form-control" id="" maxlength="2" pattern="\d*" placeholder="Enter The Hours" name="hours" required="">
 					</div>
 				<div class="form-group">
 					<label>Kilo Meter</label>
-					<input type="number" maxlength="10" minlength="10" class="form-control" placeholder="Kilo Meter" name="kilo_meter" required>
+					<input type="text" maxlength="4"  pattern="\d*" class="form-control" placeholder="Kilo Meter" name="kilo_meter" required>
 				</div>
 				</div>
 			<div class="box-footer">

@@ -4,12 +4,12 @@ if (!empty($_POST)) {
 	$customer_data=array('customer_name'=>$_POST['customer_name'],'phone_number'=>$phone_number);
 	include_once '../model/index.php';
 	if($wpdb->insert('customer',$customer_data)){
-		header("location:../view/customers.php?status=success");
+		header("location:../view/customers.php?status=inserted&slug=Customer");
 	}else{
-		header("location:../view/customers.php?status=error");
+		header("location:../view/customers.php?status=inserted&slug=Customer");
 	}
 }else{
-	header("location:../view/customers.php?status=error");
+	header("location:../view/customers.php?status=inserted&slug=Customer");
 }
 ?>
 

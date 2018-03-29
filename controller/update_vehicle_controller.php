@@ -4,7 +4,7 @@ $vehicles_data=array('vehicle_name'=>$_POST['vehicle_name'],'vehicle_number'=>$_
 $where = array('id'=>$_GET['id']);
 $update = $wpdb->update('vehicles',$vehicles_data,$where);
 if ($update) {
-	header("location:../view/vehicles.php?status=success");
+	header("location:../view/vehicles.php?status=updated&slug=Vechicle");
 }else{
 	header("location:../view/vehicles.php?status=error");
 }

@@ -1,4 +1,14 @@
 $(document).ready(function () {
+
+
+    $("body").on("keypress",".phone_no",function(e){
+
+     // $(".phone_no").keypress(function (e) {
+        if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+            $("#errmsg").html("Digits Only").show().fadeOut("slow");
+            return false;
+       }
+    });
     $(".calculate_value").on("change paste keyup", function() {
         var starting_km = $("input[name='starting_km']").val();
         var ending_km = $("input[name='ending_km']").val();
@@ -57,7 +67,6 @@ $(document).ready(function () {
             url:'../controller/get_data_controller.php',
             success:function(data){
                  var data = JSON.parse(data);
-                    console.log(data);
                 if (data['status']=='success') {
                     var driver_id=data['id'];
                     if (driver_id) {

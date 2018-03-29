@@ -5,9 +5,9 @@ $customer_data=array('customer_name'=>$_POST['customer_name'],'phone_number'=>$p
 $where = array('id'=>$_GET['id']);
 $update = $wpdb->update('customer',$customer_data,$where);
 if ($update) {
-	header("location:../view/customers.php?status=success");
+	header("location:../view/customers.php?status=updated&slug=Customer");
 }else{
-	header("location:../view/customers.php?status=error");
+	header("location:../view/customers.php?status=updated&slug=Customer");
 }
 ?>
 

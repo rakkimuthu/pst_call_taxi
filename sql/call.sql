@@ -1,4 +1,4 @@
--- Adminer 4.2.5 MySQL dump
+-- Adminer 4.3.1 MySQL dump
 
 SET NAMES utf8;
 SET time_zone = '+00:00';
@@ -58,12 +58,44 @@ CREATE TABLE `entry` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
+DROP TABLE IF EXISTS `login_pin`;
+CREATE TABLE `login_pin` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `login_pin` int(50) DEFAULT NULL,
+  `username` varchar(100) DEFAULT NULL,
+  `phone_no` varchar(100) DEFAULT NULL,
+  `company_name` varchar(100) DEFAULT NULL,
+  `updated_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `login_pin` (`id`, `login_pin`, `username`, `phone_no`, `company_name`, `updated_on`) VALUES
+(1,	1,	'Raja',	'9842477736',	'RRN Earth Works',	'2018-03-28 16:48:28');
+
 DROP TABLE IF EXISTS `pricing_master`;
 CREATE TABLE `pricing_master` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `vechicle_id` int(11) DEFAULT NULL,
   `additional_rate` varchar(10) DEFAULT NULL,
   `additional_rate_km` varchar(10) DEFAULT NULL,
+  `2|20` varchar(255) DEFAULT NULL,
+  `2|30` varchar(255) DEFAULT NULL,
+  `2|40` varchar(255) DEFAULT NULL,
+  `3|50` varchar(255) DEFAULT NULL,
+  `3|60` varchar(255) DEFAULT NULL,
+  `3|70` varchar(255) DEFAULT NULL,
+  `3|80` varchar(255) DEFAULT NULL,
+  `3|90` varchar(255) DEFAULT NULL,
+  `4|100` varchar(255) DEFAULT NULL,
+  `4|110` varchar(255) DEFAULT NULL,
+  `4|120` varchar(255) DEFAULT NULL,
+  `4|130` varchar(255) DEFAULT NULL,
+  `5|140` varchar(255) DEFAULT NULL,
+  `5|150` varchar(255) DEFAULT NULL,
+  `5|160` varchar(255) DEFAULT NULL,
+  `5|170` varchar(255) DEFAULT NULL,
+  `5|180` varchar(255) DEFAULT NULL,
+  `12|12` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `vechicle_id` (`vechicle_id`),
   CONSTRAINT `pricing_master_ibfk_1` FOREIGN KEY (`vechicle_id`) REFERENCES `vehicles` (`id`)
@@ -86,4 +118,4 @@ CREATE TABLE `vehicles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
--- 2018-03-27 08:03:12
+-- 2018-03-29 05:58:10

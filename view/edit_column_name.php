@@ -16,11 +16,11 @@ $value = explode('|',$column_name);
 					<div class="box-body">
 					   <div class="form-group">
 					        <label>Hours</label>
-					        <input type="text" class="form-control"  placeholder="Hours" value="<?php echo $value['0']; ?>" name="hours" required>
+					        <input type="text" class="form-control"  placeholder="Hours" value="<?php echo $value['0']; ?>" maxlength="4" name="hours" pattern="\d*"  required>
 						</div>
 						<div class="form-group">
 						    <label>Kilo Meter</label>
-						    <input type="text" value="<?php echo $value['1']; ?>" class="form-control phone_no" placeholder="Customer Phone Number" name="kilo_meter"  required="">
+						    <input type="text" value="<?php echo $value['1']; ?>" pattern="\d*"  class="form-control phone_no" placeholder="Customer Phone Number" name="kilo_meter" maxlength="4" required="">
 						</div> 
 					</div>
 					

@@ -4,8 +4,8 @@ $id=$_GET['id'];
 $where = array('id'=>$id);
 $delete = $wpdb->delete('vehicles',$where);
 if($delete){
-	header("location:../view/vehicles.php?status=success");
+	header("location:../view/vehicles.php?status=deleted&slug=Vehicle");
 
 }else{
-	echo "error";
+	header("location:../view/vehicles.php?status=error");
 }

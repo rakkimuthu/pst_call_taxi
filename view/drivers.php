@@ -35,7 +35,7 @@
 			                		<td><?php echo get_vehicle_number($driver['vehicle_id'],$wpdb)['vehicle_name'] ?></td>
 			                		<td>
 			                			<a href="edit_drivers.php?id=<?php echo $driver['id']?>"><button type="button" class="btn btn-warning">Edit</button></a>
-			                			<button class="btn btn-danger"><a href="../controller/delete_driver_controller.php?id=<?php echo $driver['id']?>">Delete</a></button>
+			                			<a href="../controller/delete_driver_controller.php?id=<?php echo $driver['id']?>"><button class="btn btn-danger">Delete</button></a>
 			                		</td>
 			                	</tr>	
 			                	<?php } ?>

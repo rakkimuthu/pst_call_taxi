@@ -62,7 +62,7 @@ Entry Form start
 				<option value="">Select Driver</option>
 				<?php foreach ($drivers as $key => $driver) { 
 					echo '<option value="'.$driver['id'].'"';
-					if ($entry_detail['vehicle_id']==$driver['id']) {
+					if ($entry_detail['driver_id']==$driver['id']) {
 							echo 'selected';
 					}
 
@@ -91,11 +91,11 @@ Entry Form start
 
 			<div class="col-md-4 col-sm-3 col-xs-4">
 				<label>Ending KM:</label>
-				<input type="number" id="ending_km" value="<?php echo $entry_detail['ending_km'] ?>" min="0" class="form-control calculate_value" placeholder="Ending KM" name="ending_km" required>
+				<input type="number" id="ending_km" max="<?php echo date("Y-m-d\TH:i")?>" value="<?php echo $entry_detail['ending_km'] ?>" min="0" class="form-control calculate_value" placeholder="Ending KM" name="ending_km" required>
 			</div>
 			<div class="col-md-4 col-sm-3 col-xs-4">
 				<label>Total KM:</label>
-				<input type="number" min="0" value="<?php echo $entry_detail['total_km'] ?>" class="form-control calculate_value" id="total_km" placeholder="Total KM" name="total_km" readonly required>
+				<input type="number" min="0" max="<?php echo date("Y-m-d\TH:i")?>" value="<?php echo $entry_detail['total_km'] ?>" class="form-control calculate_value" id="total_km" placeholder="Total KM" name="total_km" readonly required>
 			</div>
 		</div>
 		<div class="form-group">

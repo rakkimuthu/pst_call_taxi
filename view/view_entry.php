@@ -9,7 +9,7 @@
         <div class="panel panel-info">
       		<div class="box box-info">
 	        	<h4>
-	          	 <center>Entry List</center>
+	          	 <center>View Entry List</center>
 	        	</h4>
 				<?php
 			    	$entry_detail = $wpdb->get_results("SELECT * FROM entry WHERE status = '0'",ARRAY_A);
@@ -29,7 +29,7 @@
 			                	<?php 
 			                    foreach ($entry_detail as $key => $value) { 
 				              	echo '<tr>
-				              		  <td>'.$value['date'].'</td>
+				              		  <td>'.date('d-m-Y',strtotime($value['date'])).'</td>
 				                      <td>'.get_customers($value['customer_id'],$wpdb)['customer_name'].'</td>
 				                      <td>'.get_vehicle_number($value['vehicle_id'],$wpdb)['vehicle_name'].'</td>
 				                      <td>'.$value['bill_amount'].'</td>

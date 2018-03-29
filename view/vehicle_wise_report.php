@@ -43,7 +43,7 @@ $entry_list = $wpdb->get_results("SELECT * FROM entry where vehicle_id = $id && 
 		                <?php 
 		                  foreach ($entry_list as $key => $value) {
 		                  	echo '<tr>
-	                  				<td>'.$value['date'].'</td>
+	                  				<td>'.date('d-m-Y',strtotime($value['date'])).'</td>
 	                  				<td>'.get_customers($value['customer_id'],$wpdb)['customer_name'].'</td>
 	                  				<td>'.$value['bill_amount'].'</td>
 		                  		</tr>';
@@ -161,12 +161,27 @@ $entry_list = $wpdb->get_results("SELECT * FROM entry where vehicle_id = $id && 
                               extend: 'pdfHtml5',
                               filename: '<?php echo get_vehicle_number($id,$wpdb)['vehicle_name'].'_'.date("Y/m/d")." Report"?>',
                               title: '<?php echo get_vehicle_number($id,$wpdb)['vehicle_name']." Report"?>',
-                              footer: true
+            footer: true, customize: function (doc) {
+           
+                doc['footer']=(function(page, pages) {
+                    return {
+                        columns: [
+                            '© Greefi Technology,Salem',
+                            {
+                                alignment: 'right',
+                                text: ['page ', { text: page.toString() },  ' of ', { text: pages.toString() }]
+                            }
+                        ],
+                        margin: [10, 0]
+                    }
+                });
+                
+            }
                           },
                           {
                               extend: 'print',
                               title: '<?php echo get_vehicle_number($id,$wpdb)['vehicle_name']." Report"?>',
-                              footer: true
+                              footer: true,
                           }
                     ]
 

@@ -6,9 +6,9 @@ $check_column_name = "Select column_Name From INFORMATION_SCHEMA.COLUMNS Where T
 $column_name = $wpdb->get_results($check_column_name,ARRAY_A);
 if(empty($column_name['column_Name'])){
 	$wpdb->query("ALTER table `pricing_master` ADD `$pricing_master` varchar(255)");	
-	header('location:../view/pricing.php');
+	header('location:../view/pricing.php?status=inserted&slug=Pricing');
 }else{
-	header('location:../view/pricing.php');
+	header('location:../view/pricing.php?status=error');
 	
 }
 

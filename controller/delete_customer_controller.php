@@ -4,10 +4,10 @@ $id=$_GET['id'];
 $where = array('id'=>$id);
 $delete = $wpdb->delete('customer',$where);
 if($delete){
-	header("location:../view/customers.php?status=success");
+	header("location:../view/customers.php?status=deleted&slug=Customer");
 
 }else{
-	echo "error";
+	header("location:../view/customers.php?status=deleted&slug=Customer");
 }
 
  ?>

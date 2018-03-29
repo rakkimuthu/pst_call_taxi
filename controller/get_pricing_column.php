@@ -25,18 +25,18 @@ if ($check_price_amount['id']) { ?>
 				<?php 
 				echo "<tr>
 					<td>Additional Rate/hour</td>
-					<td><input type='number' name='additional_rate' value='".$check_price_amount['additional_rate']."'></td>
+					<td><input type='text' maxlength='4' pattern='\d*' name='additional_rate' value='".$check_price_amount['additional_rate']."'></td>
 	   			</tr>
 	   			<tr>
 					<td>Additional Rate/KM</td>
-					<td><input type='number' name='additional_rate_km' value='".$check_price_amount['additional_rate_km']."'></td>
+					<td><input type='text' maxlength='7' pattern='\d*' name='additional_rate_km' value='".$check_price_amount['additional_rate_km']."'></td>
 	   			</tr>";
 
 				foreach ($column_name as $key => $value) {
 				// echo $value['column_Name'];
 				echo "<tr>
 				<td>". $value['column_Name']."</td>
-				<td><input type='number' name='". $value['column_Name']."' value='".$check_price_amount[$value['column_Name']]."'></td>
+				<td><input type='text' maxlength='7' pattern='\d*'  name='". $value['column_Name']."' value='".$check_price_amount[$value['column_Name']]."'></td>
 
 				</tr>";
 				} 

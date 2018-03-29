@@ -7,13 +7,13 @@
     	<div class="panel panel-info">
       		<div class="box box-info">
         		<div class="box-header">
-				<h4 >Add Customer Details</h4>
+				<h4 ><center>Add Customer Details</center></h4>
 	        	<form class="form-horizontal" method="post" action="../controller/add_customer_controller.php">
 					<div class="box-body">
 					   <div class="form-group">
 						   	<div class="col-sm-7">
 						        <label>Name</label>
-						        <input type="text" class="form-control " id="inputEmail3" placeholder="Customer Name" name="customer_name" required>
+						        <input type="text" class="form-control" id="inputEmail3" placeholder="Customer Name" name="customer_name" required>
 							</div>
 						</div>
 						<div class="form-group">
@@ -26,9 +26,9 @@
 							</div> -->
 						</div> 
 
+						<div class="add_phone_number_div">
+			            </div>
 					</div>
-					<div class="add_phone_number_div">
-		            </div>
 					<div class="box-footer col-sm-7">
 						<button type="submit" class="btn btn-info pull-right">Add  Customer</button>
 					</div>

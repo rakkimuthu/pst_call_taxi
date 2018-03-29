@@ -35,4 +35,16 @@ function get_location($wpdb){
 		}
 		return $entry_location = '"'.implode('","', $location).'"';
 }
+
+// calculate monthly income
+function total_monthly_income_amount($wpdb){
+	$entry_monthly_income = array_sum($wpdb->get_results("SELECT bill_amount FROM entry WHERE MONTH(date) = MONTH(CURRENT_DATE())",ARRAY_A)[0]);
+	return $entry_monthly_income;
+}
+
+// calculate income for each month
+function getincome($month,$wpdb){
+		$income =$wpdb->get_results($wpdb->prepare("SELECT sum(bill_amount) FROM entry WHERE MONTH(date) = %s AND YEAR(date) = %s",$month,date('Y')),ARRAY_N)[0][0];
+		return $income;
+}
 ?>

@@ -22,7 +22,7 @@
 						<div class="form-group">
 								<label for="inputEmail3" class="col-sm-2 control-label"> Phone Number</label>  
 							<div class="col-sm-5">
-								<input type="number" maxlength="10" minlength="10" class="form-control" id="inputEmail3" placeholder="Phone Number" name="phone_number" required>
+								<input type="text" maxlength="10" minlength="10" class="form-control phone_no" id="inputEmail3" placeholder="Phone Number" name="phone_number" required>
 							</div>
 						</div>   
 

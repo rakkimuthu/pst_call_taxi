@@ -88,11 +88,11 @@ Entry Form start
 		<div class="form-group">
 			<div class="col-md-4 col-sm-3 col-xs-4">
 				<label>Starting Time:</label>
-				<input type="datetime-local" value="<?php echo date("Y-m-d\T00:00")?>" class="form-control calculate_value" placeholder="Starting Time" name="starting_time" required>
+				<input type="datetime-local" max="<?php echo date("Y-m-d\TH:i")?>" value="<?php echo date("Y-m-d\T00:00")?>" class="form-control calculate_value" placeholder="Starting Time" name="starting_time" required>
 			</div>
 			<div class="col-md-4 col-sm-3 col-xs-4">
 				<label>Ending Time:</label>
-				<input type="datetime-local" value="<?php echo date("Y-m-d\TH:i")?>" class="form-control calculate_value" placeholder="Ending Time" name="ending_time" required>
+				<input type="datetime-local" value="<?php echo date("Y-m-d\TH:i")?>"  max="<?php echo date("Y-m-d\TH:i")?>" class="form-control calculate_value" placeholder="Ending Time" name="ending_time" required>
 			</div>
 			<div class="col-md-4 col-sm-3 col-xs-4">
 				<label>Total Time:</label>
@@ -155,7 +155,7 @@ $entry_detail = $wpdb->get_results("SELECT * FROM entry WHERE status = '1'",ARRA
                 	<?php 
                     foreach ($entry_detail as $key => $value) { 
 	              	echo '<tr>
-	              		  <td>'.$value['date'].'</td>
+	              		  <td>'.date('d-m-Y',strtotime($value['date'])).'</td>
 	                      <td>'.get_customers($value['customer_id'],$wpdb)['customer_name'].'</td>
 	                      <td>'.get_vehicle_number($value['vehicle_id'],$wpdb)['vehicle_name'].'</td>
 	                      <td>'.$value['bill_amount'].'</td>';?>
