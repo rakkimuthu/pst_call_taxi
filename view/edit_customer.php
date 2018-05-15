@@ -17,7 +17,7 @@
                   <form method="post" action="../controller/update_customer_controller.php?id=<?php echo $customer_list[0]['id']?>">
                   <div class="form-group col-sm-7">
                       <label for="email">Name:</label>
-                      <input type="text" class="form-control" id="name" name="customer_name" value="<?php echo $customer_list[0]['customer_name'];?>">
+                      <input type="text" class="form-control" id="name" placeholder="Customer Name" name="customer_name" value="<?php echo $customer_list[0]['customer_name'];?>">
                       <a class="btn btn-danger add_more_phone_number pull-right" style="margin-top: 3px"><i class="fa fa-plus"></i></a>
                   </div>
                   <div class="add_phone_number_div ">

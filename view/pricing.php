@@ -1,13 +1,12 @@
 <?php 
 	include_once 'header.php';
 	include_once '../model/index.php';
-	$column_names = $wpdb->get_results("SELECT column_name FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'pricing_master'  ORDER BY ORDINAL_POSITION",ARRAY_A);
-  unset($column_names['0']);
-  unset($column_names['1']);
-  unset($column_names['2']);
-   unset($column_names['3']);
-
-	
+	$column_names = $wpdb->get_results("SELECT column_name FROM information_schema.columns WHERE table_schema = DATABASE()
+  AND table_name='pricing_master' ORDER BY ordinal_position",ARRAY_A);
+  // echo $wpdb->last_query;
+  // echo "<pre>";
+  // print_r($column_names);
+  unset($column_names['0'],$column_names['1'],$column_names['2'],$column_names['3']);
  ?>
 
 <div id="add_master_pricing" class="modal fade" role="dialog">
@@ -63,7 +62,7 @@
                       <tr>
                           <td><?php echo $value['column_name'] ?></td>
                           
-                          <td><a href="edit_column_name.php?column_name=<?php echo $value['column_name']; ?>" class="btn"><i class="fa fa-pencil text-aqua "></i></a><a href="../controller/drop_column_controller.php?column_name=<?php echo $value['column_name']; ?>"  class="btn" style="margin-left: 2px"><i class="fa fa-trash-o"></i></a></td>
+                          <td><a href="edit_column_name.php?column_name=<?php echo $value['column_name']; ?>" class="btn"><button type="button" class="btn btn-warning">Edit</button></a><a href="../controller/drop_column_controller.php?column_name=<?php echo $value['column_name']; ?>"  class="btn" style="margin-left: 2px"><button type='button' class='btn btn-danger'>Delete</button></a></td>
                       </tr>
                   <?php } ?>
                 </tbody>

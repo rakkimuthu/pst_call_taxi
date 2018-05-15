@@ -47,4 +47,25 @@ function getincome($month,$wpdb){
 		$income =$wpdb->get_results($wpdb->prepare("SELECT sum(bill_amount) FROM entry WHERE MONTH(date) = %s AND YEAR(date) = %s",$month,date('Y')),ARRAY_N)[0][0];
 		return $income;
 }
+
+// send message function
+function send_message($phone_number,$message){
+    $url = 'http://greefitech.siegsms.in/PostSms.aspx';
+    $fields_string ="";
+    $fields = array( 'userid' =>urlencode('greefitech'), 'pass'=>urlencode('madhuMitha123.'), 'phone'=>urlencode($phone_number), 'msg'=>urlencode($message));
+    //url-ify
+    foreach($fields as $key=>$value){
+        $fields_string .= $key.'='.$value.'&'; rtrim($fields_string,'&');
+    }
+    rtrim($fields_string,'&');
+    $url_final = $url.'?'.$fields_string;
+    $ch = curl_init();
+    curl_setopt($ch,CURLOPT_URL,$url_final);
+    // curl_setopt($ch,CURLOPT_POST,count($fields));
+    // curl_setopt($ch,CURLOPT_POSTFIELDS,$fields_string);
+    $result = curl_exec($ch);
+    curl_close($ch);
+
+}
+    
 ?>

@@ -1,15 +1,15 @@
 <?php 
 error_reporting(0);
+$vechicle_id  = $_POST['id'];
 
 include_once '../model/index.php';
-$check_column_name = "Select column_Name From INFORMATION_SCHEMA.COLUMNS Where Table_Name = 'pricing_master'";
+$check_column_name = "Select column_Name From INFORMATION_SCHEMA.COLUMNS WHERE table_schema = DATABASE() AND Table_Name = 'pricing_master'";
 $column_name = $wpdb->get_results($check_column_name,ARRAY_A);
-$vechicle_id  = $_POST['id'];
+// echo $wpdb->last_query;
 $check_price_amount = $wpdb->get_results("SELECT * FROM pricing_master WHERE vechicle_id=$vechicle_id",ARRAY_A)[0];
-unset($column_name[0]);
-unset($column_name[1]);
-unset($column_name[2]);
-unset($column_name[3]);
+
+unset($column_name[0],$column_name[1],$column_name[2],$column_name[3]);
+
 if ($check_price_amount['id']) { ?>
 <form action="../controller/update_vechicle_price.php" method="post">
 	<input type="hidden" name="vechicle_id" value="<?php echo $vechicle_id ?>">

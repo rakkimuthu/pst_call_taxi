@@ -5,6 +5,17 @@ SET time_zone = '+00:00';
 SET foreign_key_checks = 0;
 SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
+DROP TABLE IF EXISTS `attendance`;
+CREATE TABLE `attendance` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `date` date NOT NULL,
+  `driver_id` varchar(50) NOT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `driver_id` (`driver_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
 DROP TABLE IF EXISTS `customer`;
 CREATE TABLE `customer` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -23,7 +34,7 @@ CREATE TABLE `drivers` (
   `vehicle_id` int(11) DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `vehicle_id` (`vehicle_id`),
+  KEY `vehicle_id` (`vehicle_id`),
   CONSTRAINT `drivers_ibfk_1` FOREIGN KEY (`vehicle_id`) REFERENCES `vehicles` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -70,7 +81,7 @@ CREATE TABLE `login_pin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 INSERT INTO `login_pin` (`id`, `login_pin`, `username`, `phone_no`, `company_name`, `updated_on`) VALUES
-(1,	1,	'Raja',	'9842477736',	'RRN Earth Works',	'2018-03-28 16:48:28');
+(1,	1,	'Mohan',	'9865008970',	'PST Call Taxi',	'2018-05-07 07:51:32');
 
 DROP TABLE IF EXISTS `pricing_master`;
 CREATE TABLE `pricing_master` (
@@ -95,7 +106,24 @@ CREATE TABLE `pricing_master` (
   `5|160` varchar(255) DEFAULT NULL,
   `5|170` varchar(255) DEFAULT NULL,
   `5|180` varchar(255) DEFAULT NULL,
-  `12|12` varchar(255) DEFAULT NULL,
+  `6|190` varchar(255) DEFAULT NULL,
+  `6|200` varchar(255) DEFAULT NULL,
+  `6|210` varchar(255) DEFAULT NULL,
+  `6|220` varchar(255) DEFAULT NULL,
+  `6|230` varchar(255) DEFAULT NULL,
+  `6|240` varchar(255) DEFAULT NULL,
+  `7|250` varchar(255) DEFAULT NULL,
+  `7|260` varchar(255) DEFAULT NULL,
+  `7|270` varchar(255) DEFAULT NULL,
+  `7|280` varchar(255) DEFAULT NULL,
+  `7|290` varchar(255) DEFAULT NULL,
+  `8|300` varchar(255) DEFAULT NULL,
+  `8|310` varchar(255) DEFAULT NULL,
+  `8|320` varchar(255) DEFAULT NULL,
+  `8|330` varchar(255) DEFAULT NULL,
+  `9|340` varchar(255) DEFAULT NULL,
+  `9|350` varchar(255) DEFAULT NULL,
+  `1|10` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `vechicle_id` (`vechicle_id`),
   CONSTRAINT `pricing_master_ibfk_1` FOREIGN KEY (`vechicle_id`) REFERENCES `vehicles` (`id`)
@@ -118,4 +146,4 @@ CREATE TABLE `vehicles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
--- 2018-03-29 05:58:10
+-- 2018-05-09 08:52:04

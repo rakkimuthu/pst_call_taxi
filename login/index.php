@@ -9,7 +9,7 @@
   <meta name="" content="" />
   <meta names="" content="" />
 
-  <title>Kannan Earth Movers</title>
+  <title>PST</title>
 
   <!-- Bootstrap -->
   <link rel="stylesheet" href="css/bootstrap.min.css">

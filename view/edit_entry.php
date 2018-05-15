@@ -22,13 +22,13 @@ Entry Form start
 <form class="form-horizontal" method="post" action="../controller/update_entry_controller.php">
 	<div class="box-body">
 		<div class="form-group">
-			<div class="col-md-6 col-sm-6 col-xs-6">
+			<div class="col-md-6 col-sm-6 col-xs-12">
 				<input type="hidden" value="<?php echo $entry_detail['id'] ?>" name="id">
 				<label>Date:</label> 
 				<input type="date" class="form-control" max="<?php echo date('Y-m-d'); ?>" value="<?php echo $entry_detail['date'] ?>" placeholder="Date" name="date" required>
 			</div>
 
-			<div class="col-md-6 col-sm-6 col-xs-6">
+			<div class="col-md-6 col-sm-6 col-xs-12">
 				<label>Customers:</label>
 				<select class="form-control" name="customer_id" required>
 				<option value="">Select Customer</option>
@@ -43,7 +43,7 @@ Entry Form start
 			</div>
 		</div>
 		<div class="form-group">
-			<div class="col-md-6 col-sm-6 col-xs-6">
+			<div class="col-md-6 col-sm-6 col-xs-12">
 				<label>Vehicle Number:</label>
 				<select name="vehicle_id" class="form-control" id="vehicles" required>
 				<option value="">Select Vehicle</option>
@@ -56,7 +56,7 @@ Entry Form start
 				} ?>  
 				</select>
 			</div>
-			<div class="col-md-6 col-sm-6 col-xs-6">
+			<div class="col-md-6 col-sm-6 col-xs-12">
 				<label>Driver Name:</label>
 				<select name="driver_id" class="form-control" id="driver" required>
 				<option value="">Select Driver</option>
@@ -73,47 +73,47 @@ Entry Form start
 		</div>
 
 		<div class="form-group">
-			<div class="col-md-6 col-sm-6 col-xs-6">
+			<div class="col-md-6 col-sm-6 col-xs-12">
 				<label> Starting Location:</label>
 				<input type="text" class="form-control location_search" value="<?php echo $entry_detail['starting_location'] ?>" placeholder="Starting Location" name="starting_location" required>
 			</div>
-			<div class="col-md-6 col-sm-6 col-xs-6">
+			<div class="col-md-6 col-sm-6 col-xs-12">
 				<label> Destination Location:</label>
-				<input type="text" class="form-control location_search" value="<?php echo $entry_detail['destination_location'] ?>" placeholder="Destination Location" name="destination_location" required>
+				<input type="text" id="destination_location" class="form-control location_search" value="<?php echo $entry_detail['destination_location'] ?>" placeholder="Destination Location" name="destination_location">
 			</div>
 		</div>
 
 		<div class="form-group">
-			<div class="col-md-4 col-sm-3 col-xs-4">
+			<div class="col-md-4 col-sm-3 col-xs-12">
 				<label>Starting KM:</label>
 				<input type="number" min="0" value="<?php echo $entry_detail['starting_km'] ?>" class="form-control calculate_value" id="starting_km" placeholder="Starting KM" name="starting_km" required>
 			</div>
 
-			<div class="col-md-4 col-sm-3 col-xs-4">
+			<div class="col-md-4 col-sm-3 col-xs-12">
 				<label>Ending KM:</label>
-				<input type="number" id="ending_km" max="<?php echo date("Y-m-d\TH:i")?>" value="<?php echo $entry_detail['ending_km'] ?>" min="0" class="form-control calculate_value" placeholder="Ending KM" name="ending_km" required>
+				<input type="number" id="ending_km" value="<?php echo $entry_detail['ending_km'] ?>" min="0" class="form-control calculate_value" placeholder="Ending KM" name="ending_km">
 			</div>
-			<div class="col-md-4 col-sm-3 col-xs-4">
+			<div class="col-md-4 col-sm-3 col-xs-12">
 				<label>Total KM:</label>
-				<input type="number" min="0" max="<?php echo date("Y-m-d\TH:i")?>" value="<?php echo $entry_detail['total_km'] ?>" class="form-control calculate_value" id="total_km" placeholder="Total KM" name="total_km" readonly required>
+				<input type="number" min="0" value="<?php echo $entry_detail['total_km'] ?>" class="form-control calculate_value" id="total_km" placeholder="Total KM" name="total_km" readonly required>
 			</div>
 		</div>
 		<div class="form-group">
-			<div class="col-md-4 col-sm-3 col-xs-4">
+			<div class="col-md-4 col-sm-3 col-xs-12">
 				<label>Starting Time:</label>
 				<input type="datetime-local" value="<?php echo $entry_detail['starting_time'] ?>" class="form-control calculate_value" placeholder="Starting Time" name="starting_time" required>
 			</div>
-			<div class="col-md-4 col-sm-3 col-xs-4">
+			<div class="col-md-4 col-sm-3 col-xs-12">
 				<label>Ending Time:</label>
-				<input type="datetime-local" value="<?php echo $entry_detail['ending_time'] ?>" class="form-control calculate_value" placeholder="Ending Time" name="ending_time" required>
+				<input type="datetime-local" id="ending_time" value="<?php echo $entry_detail['ending_time'] ?>" class="form-control calculate_value" placeholder="Ending Time" name="ending_time" required>
 			</div>
-			<div class="col-md-4 col-sm-3 col-xs-4">
+			<div class="col-md-4 col-sm-3 col-xs-12">
 				<label>Total Time:</label>
 				<input type="text" id="total_time" value="<?php echo $entry_detail['total_time'] ?>" class="form-control calculate_value" placeholder="Total Time" name="total_time" readonly>
 			</div>
 		</div>
 		<div class="form-group">
-			<div class="col-md-4 col-sm-3 col-xs-4">
+			<div class="col-md-4 col-sm-3 col-xs-12">
 				<label>Type:</label>
 				<select class="form-control calculate_value" required name="type" id="type">
 					<option value="">Select Type</option>
@@ -129,18 +129,18 @@ Entry Form start
 					>Non AC</option>
 				</select>
 			</div>
-			<div class="col-md-4 col-sm-3 col-xs-4">
+			<div class="col-md-4 col-sm-3 col-xs-12">
 				<label>Extra Amount</label>
 				<input type="number" id="extra_amount" value="<?php echo $entry_detail['extra_amount'] ?>"  class="form-control calculate_value" placeholder="Extra Time" name="extra_amount" >
 			</div>
-			<div class="col-md-4 col-sm-3 col-xs-4">
+			<div class="col-md-4 col-sm-3 col-xs-12">
 				<label>Bill Amount: (₹)</label>
 				<input type="number" id="bill_amount" value="<?php echo $entry_detail['bill_amount'] ?>" class="form-control calculate_value" placeholder="Bill Amount" name="bill_amount" readonly>
 			</div>
 		</div>
 		<div class="box-footer" align="center">
-			<input type="submit" class="btn btn-info" name="save" value="save">
-			<input type="submit" class="btn btn-info" name="submit" value="submit">
+			<input type="submit" class="btn btn-info save" name="save" value="save">
+			<input type="submit" class="btn btn-info submit" name="submit" value="submit">
 			<!-- <input type="reset" class="btn btn-info" value="clear"> -->
 		</div>
 	</div>

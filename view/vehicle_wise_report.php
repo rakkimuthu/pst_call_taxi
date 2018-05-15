@@ -29,7 +29,8 @@ $entry_list = $wpdb->get_results("SELECT * FROM entry where vehicle_id = $id && 
 		                <thead>
 		                  <tr>
 		                    <th>Date</th>
-		                    <th>Customers</th>
+                        <th>From</th>
+                        <th>To</th>
 		                    <th>Bill Amount: (₹)</th>
 		                  </tr>
 		                </thead>
@@ -37,6 +38,7 @@ $entry_list = $wpdb->get_results("SELECT * FROM entry where vehicle_id = $id && 
 		                    <tr>
 		                        <th colspan="2" style="text-align:right">Total:</th>
 		                        <th></th>
+                            <th></th>
 		                    </tr>
 		                </tfoot>
 		                <tbody>
@@ -44,7 +46,8 @@ $entry_list = $wpdb->get_results("SELECT * FROM entry where vehicle_id = $id && 
 		                  foreach ($entry_list as $key => $value) {
 		                  	echo '<tr>
 	                  				<td>'.date('d-m-Y',strtotime($value['date'])).'</td>
-	                  				<td>'.get_customers($value['customer_id'],$wpdb)['customer_name'].'</td>
+                            <td>'.$value['starting_location'].'</td>
+                            <td>'.$value['destination_location'].'</td>
 	                  				<td>'.$value['bill_amount'].'</td>
 		                  		</tr>';
 		                  }?> 
@@ -122,7 +125,7 @@ $entry_list = $wpdb->get_results("SELECT * FROM entry where vehicle_id = $id && 
  
             // Total over all pages
             total = api
-                .column( 2 )
+                .column( 3 )
                 .data()
                 .reduce( function (a, b) {
                     return intVal(a) + intVal(b);
@@ -131,14 +134,14 @@ $entry_list = $wpdb->get_results("SELECT * FROM entry where vehicle_id = $id && 
  
             // // Total over this page
             pageTotal = api
-                .column( 2, { page: 'current'} )
+                .column( 3, { page: 'current'} )
                 .data()
                 .reduce( function (a, b) {
                     return intVal(a) + intVal(b);
                 }, 0 );
  
             // Update footer
-            $( api.column( 2 ).footer() ).html(
+            $( api.column( 3 ).footer() ).html(
                 ''+pageTotal 
             );
         },

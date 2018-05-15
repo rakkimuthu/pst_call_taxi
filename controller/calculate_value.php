@@ -1,8 +1,12 @@
 <?php 
 include_once '../model/index.php';
 include_once 'common_function.php';
+// echo "<pre>";
+// $_POST['total_time'] = "5:30";
+// $_POST['vehicles_id']="3";
+// $_POST['total_km']="101";
 // get vehicle all price detail
-$vehilce_price_values = get_table_values($_POST['vehicles_id'],$wpdb);
+$pricing_values = get_table_values($_POST['vehicles_id'],$wpdb);
 // split time
 $split_time = explode(':', $_POST['total_time']);
 // get all column name
@@ -15,111 +19,81 @@ foreach ($column_names as $key => $value) {
 // print_r($column_value);
 
 
-
-
-
-
-	// if($split_time[0]==0){
-	// 	$first_colunm=explode('|', $column_value[0]);
-	// 	if($_POST['total_km']<=$first_colunm[1]){
-	// 		$total_price=$vehilce_price_values[$first_colunm[1]];
-	// 	}else{
-	// 		$total_price=$vehilce_price_values[$first_colunm[1]]+(($_POST['total_km']-$first_colunm[1])*$vehilce_price_values['additional_rate_km']);
-	// 	}
-	// }elseif ($split_time[1]==0) {
-	// 	foreach ($column_value as $key => $value) {
-	// 		$split_colum_value=explode('|', $value);
-	// 		if ($split_colum_value[0]==$split_time[0] && $split_colum_value[1]==$_POST['total_km']) {
-	// 			$table_value=$split_colum_value[0]."|".$split_colum_value[1];
-	// 			$total_price=$vehilce_price_values[$table_value];
-	// 		}elseif($split_colum_value[0]==$split_time[0] && $split_colum_value[1]>$_POST['total_km']){
-	// 			$table_value=$split_colum_value[0]."|".$split_colum_value[1];
-	// 			$total_price=$vehilce_price_values[$table_value];
-	// 		}elseif($split_colum_value[0]==$split_time[0] && $split_colum_value[1]<$_POST['total_km']){
-	// 			$table_value=$split_colum_value[0]."|".$split_colum_value[1];
-	// 			$total_price=$vehilce_price_values[$table_value]+(($_POST['total_km']-$split_colum_value[1])*$vehilce_price_values['additional_rate_km']);
-	// 		}else{}
-	// 	}
-	// }else{
-	// 	foreach ($column_value as $key => $value) {
-	// 		$split_colum_value=explode('|', $value);
-	// 		if ($split_colum_value[0]==$split_time[0] && $split_colum_value[1]==$_POST['total_km']) {
-	// 			$table_value=$split_colum_value[0]."|".$split_colum_value[1];
-	// 			$total_price=$vehilce_price_values[$table_value]+$vehilce_price_values['additional_rate'];
-	// 		}elseif($split_colum_value[0]==$split_time[0] && $split_colum_value[1]>$_POST['total_km']){
-	// 			$table_value=$split_colum_value[0]."|".$split_colum_value[1];
-	// 			$total_price=$vehilce_price_values[$table_value]+$vehilce_price_values['additional_rate'];
-	// 		}elseif($split_colum_value[0]==$split_time[0] && $split_colum_value[1]<$_POST['total_km']){
-	// 			$table_value=$split_colum_value[0]."|".$split_colum_value[1];
-	// 			$total_price=$vehilce_price_values[$table_value]+$vehilce_price_values['additional_rate']+(($_POST['total_km']-$split_colum_value[1])*$vehilce_price_values['additional_rate_km']);
-	// 		}
-	// 	}
-	// }
-
-
-
-	if($split_time[0]<explode('|', $column_value[0])[0]){
-		$first_colunm=explode('|', $column_value[0]);
-		if($_POST['total_km']<=$first_colunm[1]){
-			$total_price=$vehilce_price_values[$column_value[0]];
-		}else{
-			$total_price=$vehilce_price_values[$column_value[0]]+(($_POST['total_km']-$first_colunm[1])*$vehilce_price_values['additional_rate_km']);
-		}
-	}elseif ($split_time[1]==0) {
-		// echo "in";
+	if ($split_time[1]==0){
 		foreach ($column_value as $key => $value) {
+			$keys=$key;
+			$keys1=$key;
+
 			$split_colum_value=explode('|', $value);
-			if ($split_colum_value[0]==$split_time[0] && $split_colum_value[1]==$_POST['total_km']) {
-				// $table_value=$split_colum_value[0].'|'.$split_colum_value[1];
-				$total_price=$vehilce_price_values[$value];
+			if (($split_colum_value[1]==$_POST['total_km'])&&($split_colum_value[0]>=$split_time[0])) {
+				$total_price=$pricing_values[$value];
 				break;
-			}elseif ($split_colum_value[0]>$split_time[0] && $split_colum_value[1]==$_POST['total_km']) {
-				// $table_value=$split_colum_value[0].'|'.$split_colum_value[1];
-				$total_price=$vehilce_price_values[$value];
+			}elseif (($split_colum_value[1]==$_POST['total_km'])&&($split_colum_value[0]<$split_time[0])) {
+				$extra_time=$split_time[0]-$split_colum_value[0];
+				$total_price=$pricing_values[$value]+$pricing_values['additional_rate']*$extra_time;
 				break;
-			}elseif ($split_colum_value[0]>$split_time[0] && $split_colum_value[1]<$_POST['total_km']) {
-				// $table_value=$split_colum_value[0].'|'.$split_colum_value[1];
-				$total_price=$vehilce_price_values[$value]+(($_POST['total_km']-explode('|', $column_value[$key])[1])*$vehilce_price_values['additional_rate_km']);
+			}elseif (($split_colum_value[1]<$_POST['total_km'])&&($split_colum_value[0]>=$split_time[0])&& (explode('|', $column_value[++$keys])[1]>$_POST['total_km'])) {
+				$extra_km=$_POST['total_km']-$split_colum_value[1];
+				$total_price=$pricing_values[$value]+$pricing_values['additional_rate_km']*$extra_km;
 				break;
-			}else if($split_colum_value[0]==$split_time[0] && ($split_colum_value[1]<$_POST['total_km']) && (explode('|', $column_value[++$key])[1]>$_POST['total_km'])){
-				$total_price=$vehilce_price_values[$value]+(abs($_POST['total_km']-explode('|', $column_value[--$key])[1])*$vehilce_price_values['additional_rate_km']);
-				break;
-			}else if($split_colum_value[0]<=$split_time[0] && $split_colum_value[1]==$_POST['total_km']){
-				$total_price=$vehilce_price_values[$value]+abs($split_time[0]-explode('|', $column_value[$key])[0])*$vehilce_price_values['additional_rate'];
-				break;
-			}else if($split_colum_value[0]<$split_time[0] && ($split_colum_value[1]<$_POST['total_km']) && (explode('|', $column_value[++$key])[1]>$_POST['total_km'])){
-				$total_price=$vehilce_price_values[$value]+(abs($_POST['total_km']-explode('|', $column_value[--$key])[1])*$vehilce_price_values['additional_rate_km'])+abs($split_time[0]-explode('|', $column_value[$key])[0])*$vehilce_price_values['additional_rate'];
+			}elseif (($split_colum_value[1]<$_POST['total_km'])&&($split_colum_value[0]<$split_time[0])&& (explode('|', $column_value[++$keys1])[1]>$_POST['total_km'])) {
+				$extra_time=$split_time[0]-$split_colum_value[0];
+				$extra_km=$_POST['total_km']-$split_colum_value[1];
+				$total_price=$pricing_values[$value]+$pricing_values['additional_rate']*$extra_time+$pricing_values['additional_rate_km']*$extra_km;
 				break;
 			}
+
 		}
+
 	}else{
 		foreach ($column_value as $key => $value) {
 			$split_colum_value=explode('|', $value);
-			if ($split_colum_value[0]==$split_time[0] && $split_colum_value[1]==$_POST['total_km']) {
-				$table_value=$split_colum_value[0]."|".$split_colum_value[1];
-				$total_price=$vehilce_price_values[$table_value]+($split_time[1]/60)*$vehilce_price_values['additional_rate'];
-				break;
-			}elseif ($split_colum_value[0]>$split_time[0] && $split_colum_value[1]==$_POST['total_km']) {
-				// $table_value=$split_colum_value[0].'|'.$split_colum_value[1];
-				$total_price=$vehilce_price_values[$value]+($split_time[1]/60)*$vehilce_price_values['additional_rate'];
-				break;
-			}elseif ($split_colum_value[0]>$split_time[0] && $split_colum_value[1]<$_POST['total_km']) {
-				// $table_value=$split_colum_value[0].'|'.$split_colum_value[1];
-				$total_price=$vehilce_price_values[$value]+(($_POST['total_km']-explode('|', $column_value[$key])[1])*$vehilce_price_values['additional_rate_km'])+($split_time[1]/60)*$vehilce_price_values['additional_rate'];
-				break;
-			}else if($split_colum_value[0]==$split_time[0] && ($split_colum_value[1]<$_POST['total_km']) && (explode('|', $column_value[++$key])[1]>$_POST['total_km'])){
-				$total_price=$vehilce_price_values[$value]+(abs($_POST['total_km']-explode('|', $column_value[--$key])[1])*$vehilce_price_values['additional_rate_km'])+($split_time[1]/60)*$vehilce_price_values['additional_rate'];
-				break;
-			}else if($split_colum_value[0]<=$split_time[0] && $split_colum_value[1]==$_POST['total_km']){
-				$total_price=$vehilce_price_values[$value]+abs($split_time[0]-explode('|', $column_value[$key])[0])*$vehilce_price_values['additional_rate']+($split_time[1]/60)*$vehilce_price_values['additional_rate'];
-				break;
-			}else if($split_colum_value[0]<$split_time[0] && ($split_colum_value[1]<$_POST['total_km']) && (explode('|', $column_value[++$key])[1]>$_POST['total_km'])){
+			$keys=$key;
+			$keys1=$key;
 
-				$total_price=$vehilce_price_values[$value]+(abs($_POST['total_km']-explode('|', $column_value[--$key])[1])*$vehilce_price_values['additional_rate_km'])+abs($split_time[0]-explode('|', $column_value[$key])[0])*$vehilce_price_values['additional_rate']+($split_time[1]/60)*$vehilce_price_values['additional_rate'];
+			// print_r($split_colum_value);
+			if (($split_colum_value[1]==$_POST['total_km'])&&($split_colum_value[0]>=$split_time[0])) {
+				if ($split_colum_value[0]==$split_time[0]) {  // time equal to same 
+					$table_value=$split_colum_value[0]."|".$split_colum_value[1];
+					$total_price=$pricing_values[$table_value]+($split_time[1]/60)*$pricing_values['additional_rate'];
+					break;
+				}else{//time less than 
+					$total_price=$pricing_values[$value];
+					break;
+				}
+			}elseif (($split_colum_value[1]==$_POST['total_km'])&&($split_colum_value[0]<$split_time[0])) {
+				$table_value=$split_colum_value[0]."|".$split_colum_value[1];
+				$extra_time=$split_time[0]-$split_colum_value[0];
+				$total_price=$pricing_values[$table_value]+($split_time[1]/60)*$pricing_values['additional_rate']+$pricing_values['additional_rate']*$extra_time;
+				break;
+			}elseif (($split_colum_value[1]<$_POST['total_km'])&&($split_colum_value[0]>=$split_time[0])&& (explode('|', $column_value[++$keys])[1]>$_POST['total_km'])) {
+				if ($split_colum_value[0]==$split_time[0]) {  // time equal to same 
+					$table_value=$split_colum_value[0]."|".$split_colum_value[1];
+					$extra_km=$_POST['total_km']-$split_colum_value[1];
+					$total_price=$pricing_values[$table_value]+($split_time[1]/60)*$pricing_values['additional_rate']+$pricing_values['additional_rate_km']*$extra_km;
+					break;
+				}else{//time less than 
+					$extra_km=$_POST['total_km']-$split_colum_value[1];
+					$total_price=$pricing_values[$value]+$pricing_values['additional_rate_km']*$extra_km;
+					break;
+				}
+			}elseif (($split_colum_value[1]<$_POST['total_km'])&&($split_colum_value[0]<$split_time[0])&& (explode('|', $column_value[++$keys1])[1]>$_POST['total_km'])) {
+				
+				$table_value=$split_colum_value[0]."|".$split_colum_value[1];
+				$extra_time=$split_time[0]-$split_colum_value[0];
+				$extra_km=$_POST['total_km']-$split_colum_value[1];
+
+				$total_price=$pricing_values[$table_value]+($split_time[1]/60)*$pricing_values['additional_rate']+$pricing_values['additional_rate']*$extra_time+$pricing_values['additional_rate_km']*$extra_km;;
 				break;
 			}
+
 		}
 	}
+
+
+
+
+
 
 	// $total_price =array('price'=>$total_price); 
 echo json_encode($total_price);

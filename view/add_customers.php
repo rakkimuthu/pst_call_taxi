@@ -18,9 +18,9 @@
 						</div>
 						<div class="form-group">
 							<div class="col-sm-7">
-							    <a class="btn add_more_phone_number pull-right"><i class="fa fa-plus"></i></a>
+							    <a class="btn btn-danger add_more_phone_number pull-right"><i class="fa fa-plus"></i></a>
 							    <label>Phone No</label>
-							    <input type="text" minlength="10" maxlength="10" class="form-control phone_no " placeholder="Customer Phone Number" name="phone_number[]" required>
+							    <input type="text" minlength="10" maxlength="10" class="form-control phone_no" placeholder="Customer Phone Number" name="phone_number[]" pattern="[1-9]{1}[0-9]{9}" required>
 							</div> 
 							<!-- <div class="col-sm-5">
 							</div> -->

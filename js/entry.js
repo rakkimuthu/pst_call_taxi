@@ -48,7 +48,8 @@ $(document).ready(function () {
                 var data = JSON.parse(data);
                 var bill_price = data;
                 var total_price = parseFloat(bill_price)+parseFloat(ac_amount)+parseFloat(extra_amount);
-                $("#bill_amount").val(total_price);
+                total_price.toPrecision(1);
+                $("#bill_amount").val(total_price.toFixed(2));
             }
         })
 
@@ -82,6 +83,41 @@ $(document).ready(function () {
                 }
             }
         })
+    });
+
+
+
+
+
+
+     $(".submit").on("click", function() {
+           $("#ending_km").attr("required", "true");
+           $("#destination_location").attr("required", "true");
+            var total_km = $("input[name='total_km']").val();
+             var driver = $("#driver option:selected").val();
+             console.log(driver);
+            var total_time = $("input[name='total_time']").val();
+            var split_time=total_time.split(":");
+            if (total_km<1) {
+                $(".submit").attr("disabled", "disabled");
+                alert("Check End KM");    
+                $("#ending_km").focus(); 
+            }else if (split_time[0]<0) {
+                $(".submit").attr("disabled", "disabled"); 
+                alert("Check End Time");   
+                $("#ending_time").focus(); 
+            }else if (driver=='') {
+                $(".submit").attr("disabled", "disabled"); 
+                alert("Checck Driver");   
+            }else{
+                $(".submit").removeAttr("disabled");    
+            }
+    });
+
+    $(".save").on("click", function() {
+           $("#ending_km").removeAttr("required");
+           $("#destination_location").removeAttr("required");
+            $(".submit").removeAttr("disabled");
     });
     
 });

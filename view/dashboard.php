@@ -84,7 +84,7 @@
                     pointStrokeColor: 'rgba(60,141,188,1)',
                     pointHighlightFill: '#fff',
                     pointHighlightStroke: 'rgba(60,141,188,1)',
-                    data: [0,0,0,0,0,0,0,0,0,0,0,0]
+                    // data: [0,0,0,0,0,0,0,0,0,0,0,0]
                 },{
                     label: 'Income',
                     fillColor: 'rgba(225, 246, 222, 1)',

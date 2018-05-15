@@ -90,7 +90,7 @@
 
 						
 						<td>
-							<a href="edit_vehicles.php?id=<?php echo $vehicle['id']?>"><button type="button" class="btn btn-warning ">Edit</button>
+							<a href="edit_vehicles.php?id=<?php echo $vehicle['id']?>"><button type="button" class="btn btn-warning ">Edit</button><br><br>
 							 <a href="../controller/delete_vehicle_controller.php?id=<?php echo $vehicle['id'] ?>"><button type="button" class="btn btn-danger">Delete</button> 
 						</td>
 					</tr>	

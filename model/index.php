@@ -1,7 +1,7 @@
 <?php
 Class Database {
 	private $username = 'root';
-	private $password = '';
+	private $password = 'root';
 	private $db_name = 'pst';
 	private $host = 'localhost';
 	private $slug = '';

@@ -1,11 +1,7 @@
 <?php  
   include_once '../model/index.php';
-$id=$_GET['id'];
-$where = array('id'=>$id);
-$delete = $wpdb->delete('vehicles',$where);
-if($delete){
+if($wpdb->delete('vehicles',array('id'=>$_GET['id']))){
 	header("location:../view/vehicles.php?status=deleted&slug=Vehicle");
-
 }else{
 	header("location:../view/vehicles.php?status=error");
 }

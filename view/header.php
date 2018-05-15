@@ -76,6 +76,7 @@
               <li><a href="pricing.php"><i class="fa fa-circle-o text-yellow"></i> <span>Pricing Master</span></a></li>
               <li><a href="add_pricing.php"><i class="fa fa-circle-o text-yellow"></i> <span>Add Pricing</span></a></li>
               <li><a href="login_pin.php"><i class="fa fa-circle-o text-yellow"></i> <span>Change Pin</span></a></li>
+
             </ul>
           </li>
           <li><a href="entry.php"><i class="fa fa-circle-o text-green"></i> <span>Entry</span></a></li>
@@ -90,6 +91,9 @@
             </a>
             <ul class="treeview-menu" style="display: none;">
               <li><a href="vehicle_report.php"><i class="fa fa-circle-o text-purple"></i> <span>Vehicle Wise Report</span></a></li>
+              <li><a href="attendance.php"><i class="fa fa-circle-o text-yellow"></i> <span>Attendance</span></a></li>
+              <li><a href="view_attendance.php"><i class="fa fa-circle-o text-purple"></i> <span>View Attendance Report</span></a></li>
+
             </ul>
           </li>        
       </section>

@@ -43,8 +43,8 @@ $customer_list = $wpdb->get_results("SELECT * FROM customer ORDER BY customer_na
 	                      </td>
 	                        
 
-		                    <td><a href="edit_customer.php?id=<?php echo $value['id']?>"><button type="button" class="btn btn-warning">Edit</button></a>
-	                           <a href="../controller/delete_customer_controller.php?id=<?php echo $value['id']?>">  <button type='button' class='btn btn-danger'>Delete</button></a>
+		                    <td><a href="edit_customer.php?id=<?php echo $value['id']?>"><button type="button" class="btn btn-warning btn-sm">Edit</button></a><br><br>
+	                           <a href="../controller/delete_customer_controller.php?id=<?php echo $value['id']?>">  <button type='button' class='btn btn-danger btn-sm'>Delete</button></a>
                        </td>
 	                  </tr>
 	               <?php } ?>

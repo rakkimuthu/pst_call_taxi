@@ -23,7 +23,7 @@ $vehicles_list = $wpdb->get_results("SELECT * FROM vehicles");
 			                  <?php 
 			                  foreach ($vehicles_list as $key => $value) {
 			                      echo "<tr>
-			                            <td><a href='vehicle_wise_report.php?id=$value->id'>$value->vehicle_number</a></td>
+			                            <td><a href='vehicle_wise_report.php?id=$value->id'>$value->vehicle_name</a></td>
 			                            </td>
 			                      </tr>";
 			                  }?>
