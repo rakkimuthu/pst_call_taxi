@@ -1,9 +1,9 @@
 <?php
-	// echo "<pre>";
-	include_once '../controller/common_function.php';
-	include_once '../model/index.php';
-	include_once 'header.php'; 
-	
+    // echo "<pre>";
+    include_once '../controller/common_function.php';
+    include_once '../model/index.php';
+    include_once 'header.php';
+
  ?>
 <div class="row">
 	<div class="col-xs-12">
@@ -13,7 +13,7 @@
 				<div class="col-md-3 col-sm-6 col-xs-12">
 					<div class="info-box bg-green">
 						<div class="info-box-content">
-							<span class="info-box-text"><?php echo date("M Y"); ?> Income</span><br/><br/>
+							<span class="info-box-text"><?php echo date('M Y'); ?> Income</span><br/><br/>
 							<span class="info-box-number">₹: <?php echo total_monthly_income_amount($wpdb); ?></span>
 							<br/><br/>
 						</div>
@@ -33,7 +33,7 @@
 
 		<div class="box box-success table-responsive">
             <div class="box-header with-border">
-              <h3 class="box-title"><?php echo date("Y"); ?> Income Details</h3>
+              <h3 class="box-title"><?php echo date('Y'); ?> Income Details</h3>
 
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -57,16 +57,15 @@
 <!-- calculate bar chart income & expense -->
 
 <?php 
-	for ($i=1; $i <= 12; $i++) { 
-		$raw_data = getincome($i,$wpdb);
-		if (empty($raw_data)) {
-			$income[]= 0;
-		}
-		else{
-			$income[]= $raw_data;	
-		}
-	}
-	$income_detail_chart = implode(',', $income);
+    for ($i = 1; $i <= 12; $i++) {
+        $raw_data = getincome($i, $wpdb);
+        if (empty($raw_data)) {
+            $income[] = 0;
+        } else {
+            $income[] = $raw_data;
+        }
+    }
+    $income_detail_chart = implode(',', $income);
 ?>
 
 
@@ -93,7 +92,7 @@
                     pointStrokeColor: '#c1c7d1',
                     pointHighlightFill: '#fff',
                     pointHighlightStroke: 'rgba(220,220,220,1)',
-                    data: [<?php echo $income_detail_chart;?>]
+                    data: [<?php echo $income_detail_chart; ?>]
 
                 }
             ]

@@ -1,6 +1,6 @@
-<?php include_once 'header.php'; 
+<?php include_once 'header.php';
 include_once '../model/index.php';
-$vehicles_list = $wpdb->get_results("SELECT * FROM vehicles");
+$vehicles_list = $wpdb->get_results('SELECT * FROM vehicles');
 ?>
 
 <div class="row">
@@ -10,7 +10,8 @@ $vehicles_list = $wpdb->get_results("SELECT * FROM vehicles");
                 <h4>
                     <center>Vehicle Report</center>
                 </h4>
-			        <?php if(!empty($vehicles_list)){ ?>
+			        <?php if (!empty($vehicles_list)) {
+    ?>
 			          <div class="box-body">
 			            <div class="table-responsive">
 			              <table  class="table table-bordered table-striped" id="staff_detail_table">
@@ -21,19 +22,20 @@ $vehicles_list = $wpdb->get_results("SELECT * FROM vehicles");
 			                </thead>
 			                <tbody>
 			                  <?php 
-			                  foreach ($vehicles_list as $key => $value) {
-			                      echo "<tr>
+                              foreach ($vehicles_list as $key => $value) {
+                                  echo "<tr>
 			                            <td><a href='vehicle_wise_report.php?id=$value->id'>$value->vehicle_name</a></td>
 			                            </td>
 			                      </tr>";
-			                  }?>
+                              } ?>
 			                </tbody>
 			              </table>
 			            </div>
 			          </div>
-			      <?php }else{
-			      		echo '<blockquote><p>No Vehicle Report till now!!</p></blockquote>';
-			       } ?>
+			      <?php
+} else {
+                                  echo '<blockquote><p>No Vehicle Report till now!!</p></blockquote>';
+                              } ?>
             </div>
         </div>
     </div>

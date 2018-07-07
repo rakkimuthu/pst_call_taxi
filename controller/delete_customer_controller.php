@@ -1,13 +1,12 @@
-<?php  
+<?php 
   include_once '../model/index.php';
-$id=$_GET['id'];
-$where = array('id'=>$id);
-$delete = $wpdb->delete('customer',$where);
-if($delete){
-	header("location:../view/customers.php?status=deleted&slug=Customer");
-
-}else{
-	header("location:../view/customers.php?status=deleted&slug=Customer");
+$id = $_GET['id'];
+$where = ['id'=>$id];
+$delete = $wpdb->delete('customer', $where);
+if ($delete) {
+    header('location:../view/customers.php?status=deleted&slug=Customer');
+} else {
+    header('location:../view/customers.php?status=deleted&slug=Customer');
 }
 
  ?>

@@ -102,10 +102,10 @@
   <div class="content-wrapper">
     <section class="content">
        <?php
-          if(isset($_GET['status'])){
-            $status = $_GET['status'];
-          }else{
-            $status = "";
+          if (isset($_GET['status'])) {
+              $status = $_GET['status'];
+          } else {
+              $status = '';
           }
           switch ($status) {
             case 'inserted':
@@ -121,6 +121,6 @@
               echo '<div class="alert alert-warning" id="dynamic-alart" ><strong>Sorry!</strong> '.$_GET['slug'].' name already present or Something went wrongly.</div>';
             break;
             default:
-            echo "";
+            echo '';
             break;
           }
