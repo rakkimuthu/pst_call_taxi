@@ -1,8 +1,8 @@
 <?php 
-	include_once 'header.php';
-	include_once '../model/index.php';
-	$column_names = $wpdb->get_results("SELECT column_name FROM information_schema.columns WHERE table_schema = DATABASE()
-  AND table_name='pricing_master' ORDER BY ordinal_position",ARRAY_A);
+    include_once 'header.php';
+    include_once '../model/index.php';
+    $column_names = $wpdb->get_results("SELECT column_name FROM information_schema.columns WHERE table_schema = DATABASE()
+  AND table_name='pricing_master' ORDER BY ordinal_position", ARRAY_A);
   // echo $wpdb->last_query;
   // echo "<pre>";
   // print_r($column_names);
@@ -58,13 +58,15 @@
                 </thead>
                 <tbody>
                   <?php 
-                  foreach ($column_names as $key => $value) { ?>
+                  foreach ($column_names as $key => $value) {
+                      ?>
                       <tr>
                           <td><?php echo $value['column_name'] ?></td>
                           
                           <td><a href="edit_column_name.php?column_name=<?php echo $value['column_name']; ?>" class="btn"><button type="button" class="btn btn-warning">Edit</button></a><a href="../controller/drop_column_controller.php?column_name=<?php echo $value['column_name']; ?>"  class="btn" style="margin-left: 2px"><button type='button' class='btn btn-danger'>Delete</button></a></td>
                       </tr>
-                  <?php } ?>
+                  <?php
+                  } ?>
                 </tbody>
               </table>
             </div>

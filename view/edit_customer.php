@@ -1,8 +1,8 @@
 <?php 
   include_once 'header.php';
   include_once '../model/index.php';
-  $id=$_GET['id'];
-  $customer_list = $wpdb->get_results("SELECT * FROM customer where id='$id' ",ARRAY_A);
+  $id = $_GET['id'];
+  $customer_list = $wpdb->get_results("SELECT * FROM customer where id='$id' ", ARRAY_A);
   // print_r($customer_list);
 ?>
      
@@ -17,20 +17,21 @@
                   <form method="post" action="../controller/update_customer_controller.php?id=<?php echo $customer_list[0]['id']?>">
                   <div class="form-group col-sm-7">
                       <label for="email">Name:</label>
-                      <input type="text" class="form-control" id="name" placeholder="Customer Name" name="customer_name" value="<?php echo $customer_list[0]['customer_name'];?>">
+                      <input type="text" class="form-control" id="name" placeholder="Customer Name" name="customer_name" value="<?php echo $customer_list[0]['customer_name']; ?>">
                       <a class="btn btn-danger add_more_phone_number pull-right" style="margin-top: 3px"><i class="fa fa-plus"></i></a>
                   </div>
                   <div class="add_phone_number_div ">
                     <?php
                     $var1 = unserialize($customer_list[0]['phone_number']);
-                    foreach ($var1 as $key => $value1) { 
-                      ?>
+                    foreach ($var1 as $key => $value1) {
+                        ?>
                     <div class="form-group col-sm-7">
                         <label for="email">Phone No:  </label>
                         <input type="text" class="form-control phone_no" placeholder="Customer Phone Number" name="phone_number[]" value= "<?php echo $value1 ?>" minlength="10" maxlength="10" required>
                         <a href="#" class=" btn remove_field pull-right" style="margin-left:10px;"><i class="fa fa-remove"></i></a>
                     </div>
-                    <?php }?>
+                    <?php
+                    }?>
                   </div>
 
                   <div class="col-sm-7">

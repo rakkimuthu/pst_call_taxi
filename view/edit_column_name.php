@@ -2,7 +2,7 @@
 include_once '../model/index.php';
 include_once 'header.php';
 $column_name = $_GET['column_name'];
-$value = explode('|',$column_name);
+$value = explode('|', $column_name);
  ?>
 
  <!-- View Customer Details Model -->
@@ -12,7 +12,7 @@ $value = explode('|',$column_name);
       		<div class="box box-info">
         		<div class="box-header">
 				<h4 >Edit Master Pricing</h4>
-	        	<form class="form-horizontal" method="post" action="../controller/update_column_controller.php?old_column_value=<?php echo $column_name;?>">
+	        	<form class="form-horizontal" method="post" action="../controller/update_column_controller.php?old_column_value=<?php echo $column_name; ?>">
 					<div class="box-body">
 					   <div class="form-group">
 					        <label>Hours</label>

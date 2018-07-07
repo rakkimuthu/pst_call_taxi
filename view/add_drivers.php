@@ -1,7 +1,7 @@
 <?php 
-	include_once 'header.php';
-	include_once '../model/index.php';
-	$vehicles = $wpdb->get_results("SELECT * FROM vehicles",ARRAY_A);
+    include_once 'header.php';
+    include_once '../model/index.php';
+    $vehicles = $wpdb->get_results('SELECT * FROM vehicles', ARRAY_A);
  ?>
 
 <!-- Add Vehicle Model -->
@@ -31,9 +31,11 @@
 							<div class="col-sm-5">
 							<select name="vehicle_id" class="form-control" required>
 								<option value="">Select Vehicle</option>
-								<?php foreach ($vehicles as $key => $vehicle) { ?>
+								<?php foreach ($vehicles as $key => $vehicle) {
+     ?>
 								<option value="<?php echo $vehicle['id'] ?>"><?php echo $vehicle['vehicle_name'] ?></option>            
-							<?php } ?>  
+							<?php
+ } ?>  
 						    </select>
 							</div>
 						</div> 

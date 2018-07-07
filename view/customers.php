@@ -1,9 +1,9 @@
  <?php
- 
+
   include_once 'header.php';
   include_once '../model/index.php';
 
-$customer_list = $wpdb->get_results("SELECT * FROM customer ORDER BY customer_name",ARRAY_A);
+$customer_list = $wpdb->get_results('SELECT * FROM customer ORDER BY customer_name', ARRAY_A);
 ?> 
 
 
@@ -18,7 +18,8 @@ $customer_list = $wpdb->get_results("SELECT * FROM customer ORDER BY customer_na
           </h4>
              <a href="add_customers.php"  class="btn btn-info btn-lg  pull-right">Add</a>
         </div>
-        <?php if(!empty($customer_list)){ ?>
+        <?php if (!empty($customer_list)) {
+    ?>
           <div class="box-body">
             <div class="table-responsive">
               <table  class="table table-bordered table-striped" id="view_table_detail">
@@ -31,15 +32,13 @@ $customer_list = $wpdb->get_results("SELECT * FROM customer ORDER BY customer_na
                 </thead>
                 <tbody>
                 	<?php 
-                    foreach ($customer_list as $key => $value) { 
-                  	$var1 = unserialize($value['phone_number']);
-					
-	              	?>
+                    foreach ($customer_list as $key => $value) {
+                        $var1 = unserialize($value['phone_number']); ?>
 	                  <tr>
 	                      <td><?php echo $value['customer_name'] ?></td>
 
 	                      <td>
-	                      <?php echo implode(",", $var1); ?>
+	                      <?php echo implode(',', $var1); ?>
 	                      </td>
 	                        
 
@@ -47,16 +46,18 @@ $customer_list = $wpdb->get_results("SELECT * FROM customer ORDER BY customer_na
 	                           <a href="../controller/delete_customer_controller.php?id=<?php echo $value['id']?>">  <button type='button' class='btn btn-danger btn-sm'>Delete</button></a>
                        </td>
 	                  </tr>
-	               <?php } ?>
+	               <?php
+                    } ?>
                 </tbody>
               </table>
             </div>
           </div>
 
 
-      <?php }else{
-          echo "<blockquote><p>No Customer till now added!!</p></blockquote>";
-      } ?>
+      <?php
+} else {
+                        echo '<blockquote><p>No Customer till now added!!</p></blockquote>';
+                    } ?>
       </div>
     </div>
   </div>

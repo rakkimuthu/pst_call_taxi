@@ -1,9 +1,9 @@
 <?php 
   include_once 'header.php';
   include_once '../model/index.php';
-  $vehicles = $wpdb->get_results("SELECT * FROM vehicles",ARRAY_A);
-  $id=$_GET['id'];
-  $drivers_list = $wpdb->get_results("SELECT * FROM drivers where id='$id' ",ARRAY_A);
+  $vehicles = $wpdb->get_results('SELECT * FROM vehicles', ARRAY_A);
+  $id = $_GET['id'];
+  $drivers_list = $wpdb->get_results("SELECT * FROM drivers where id='$id' ", ARRAY_A);
   ?>
      <div class="row">
     <div class="col-xs-12">
@@ -32,14 +32,16 @@
 							<div class="col-sm-5">
 							<select name="vehicle_id" class="form-control" required>
 								<option value="">Select Vehicle</option>
-								<?php foreach ($vehicles as $key => $vehicle) { ?>
+								<?php foreach ($vehicles as $key => $vehicle) {
+      ?>
 								<option value="<?php echo $vehicle['id'] ?>"
 									<?php if ($vehicle['id'] == $drivers_list[0]['vehicle_id']) {
-											echo " selected";
-									}?>
+          echo ' selected';
+      } ?>
 
 									><?php echo $vehicle['vehicle_name'] ?></option>            
-							<?php } ?>  
+							<?php
+  } ?>  
 						    </select>
 							</div>
 						</div> 
