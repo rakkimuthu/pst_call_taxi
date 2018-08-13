@@ -1,6 +1,6 @@
 <?php 
-    include_once 'header.php';
-    include_once '../model/index.php';
+	include_once 'header.php';
+	include_once '../model/index.php';
  ?>
 <div class="row">
    <div class="col-xs-12">
@@ -38,7 +38,7 @@
     	</div>
 	</div>
 </div>
-<?php	include_once 'footer.php'; ?>
+<?php	include_once 'footer.php';?>
 <script>
 
 	$('.add_more_phone_number').click(function(){ //click event on add more fields button having class add_more_button

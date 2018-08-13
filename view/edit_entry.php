@@ -1,11 +1,11 @@
 <?php include_once 'header.php';
 include_once '../model/index.php';
 include_once '../controller/common_function.php';
-$customers = $wpdb->get_results('SELECT * FROM customer ORDER BY customer_name', ARRAY_A);
-$vehicles = $wpdb->get_results('SELECT * FROM vehicles', ARRAY_A);
-$drivers = $wpdb->get_results('SELECT * FROM drivers ORDER BY driver_name', ARRAY_A);
+$customers = $wpdb->get_results("SELECT * FROM customer ORDER BY customer_name",ARRAY_A);
+$vehicles = $wpdb->get_results("SELECT * FROM vehicles",ARRAY_A);
+$drivers = $wpdb->get_results("SELECT * FROM drivers ORDER BY driver_name",ARRAY_A);
 $id = $_GET['id'];
-$entry_detail = $wpdb->get_results("SELECT * FROM entry WHERE id = $id", ARRAY_A)[0];
+$entry_detail = $wpdb->get_results("SELECT * FROM entry WHERE id = $id",ARRAY_A)[0];
 // print_r($entry_detail);
 ?>
 <div class="row">
@@ -32,13 +32,13 @@ Entry Form start
 				<label>Customers:</label>
 				<select class="form-control" name="customer_id" required>
 				<option value="">Select Customer</option>
-				<?php foreach ($customers as $key => $customer) {
-    echo '<option value="'.$customer['id'].'"';
-    if ($entry_detail['customer_id'] == $customer['id']) {
-        echo 'selected';
-    }
-    echo '>'.$customer['customer_name'].'</option>';
-} ?>
+				<?php foreach ($customers as $key => $customer) { 
+					echo '<option value="'.$customer['id'].'"';
+					if ($entry_detail['customer_id']==$customer['id']) {
+							echo 'selected';
+					}	
+					echo '>'.$customer['customer_name'].'</option>';
+				 } ?>
 				</select>
 			</div>
 		</div>
@@ -47,27 +47,27 @@ Entry Form start
 				<label>Vehicle Number:</label>
 				<select name="vehicle_id" class="form-control" id="vehicles" required>
 				<option value="">Select Vehicle</option>
-				<?php foreach ($vehicles as $key => $vehicle) {
-    echo '<option value="'.$vehicle['id'].'"';
-    if ($entry_detail['vehicle_id'] == $vehicle['id']) {
-        echo 'selected';
-    }
-    echo '>'.$vehicle['vehicle_name'].'</option>';
-} ?>  
+				<?php foreach ($vehicles as $key => $vehicle) { 
+					echo '<option value="'.$vehicle['id'].'"';
+					if ($entry_detail['vehicle_id']==$vehicle['id']) {
+						echo 'selected';
+					}
+					echo '>'.$vehicle['vehicle_name'].'</option>';
+				} ?>  
 				</select>
 			</div>
 			<div class="col-md-6 col-sm-6 col-xs-12">
 				<label>Driver Name:</label>
 				<select name="driver_id" class="form-control" id="driver" required>
 				<option value="">Select Driver</option>
-				<?php foreach ($drivers as $key => $driver) {
-    echo '<option value="'.$driver['id'].'"';
-    if ($entry_detail['driver_id'] == $driver['id']) {
-        echo 'selected';
-    }
+				<?php foreach ($drivers as $key => $driver) { 
+					echo '<option value="'.$driver['id'].'"';
+					if ($entry_detail['driver_id']==$driver['id']) {
+							echo 'selected';
+					}
 
-    echo '>'.$driver['driver_name'].'</option>';
-} ?>  
+					echo '>'.$driver['driver_name'].'</option>';
+				 } ?>  
 				</select>
 			</div>
 		</div>
@@ -118,14 +118,14 @@ Entry Form start
 				<select class="form-control calculate_value" required name="type" id="type">
 					<option value="">Select Type</option>
 					<option value="ac"
-					<?php if ($entry_detail['type'] == 'ac') {
-    echo 'selected';
-} ?>
+					<?php if ($entry_detail['type']=='ac') {
+						echo 'selected';
+					} ?>
 					>AC</option>
 					<option value="non_ac"
-					<?php if ($entry_detail['type'] == 'non_ac') {
-    echo 'selected';
-} ?>
+					<?php if ($entry_detail['type']=='non_ac') {
+						echo 'selected';
+					} ?>
 					>Non AC</option>
 				</select>
 			</div>

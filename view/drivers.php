@@ -1,8 +1,8 @@
 <?php 
-    include_once 'header.php';
-    include_once '../model/index.php';
+	include_once 'header.php';
+    include_once '../model/index.php'; 
     include_once '../controller/common_function.php';
-    $drivers = $wpdb->get_results('SELECT * FROM drivers', ARRAY_A);
+    $drivers = $wpdb->get_results("SELECT * FROM drivers",ARRAY_A);
 ?>
 
 <div class="row">
@@ -28,19 +28,17 @@
 			                </thead>
 			                <body>
 			                	<?php
-                                foreach ($drivers as $key => $driver) {
-                                    ?>
+			                	foreach ($drivers as $key => $driver) {?>
 			                	<tr>
 			                		<td><?php echo $driver['driver_name']?></td>
 			                		<td><?php echo $driver['phone_number']?></td>
-			                		<td><?php echo get_vehicle_number($driver['vehicle_id'], $wpdb)['vehicle_name'] ?></td>
+			                		<td><?php echo get_vehicle_number($driver['vehicle_id'],$wpdb)['vehicle_name'] ?></td>
 			                		<td>
 			                			<a href="edit_drivers.php?id=<?php echo $driver['id']?>"><button type="button" class="btn btn-warning">Edit</button></a><br><br>
 			                			<a href="../controller/delete_driver_controller.php?id=<?php echo $driver['id']?>"><button class="btn btn-danger">Delete</button></a>
 			                		</td>
 			                	</tr>	
-			                	<?php
-                                } ?>
+			                	<?php } ?>
 			                </body>
 			            </table>
 			        </div>

@@ -1,8 +1,8 @@
-<?php include_once 'header.php';
+<?php include_once 'header.php'; 
 include_once '../model/index.php';
 include_once '../controller/common_function.php';
 $id = $_GET['id'];
-$entry_list = $wpdb->get_results("SELECT * FROM entry where vehicle_id = $id && status = '0'", ARRAY_A);
+$entry_list = $wpdb->get_results("SELECT * FROM entry where vehicle_id = $id && status = '0'",ARRAY_A);
 ?>
 
 <div class="row">
@@ -12,8 +12,7 @@ $entry_list = $wpdb->get_results("SELECT * FROM entry where vehicle_id = $id && 
 	            <h4>
 	                <center>Vehicle Wise Report</center>
 	            </h4>
-		        <?php if (!empty($entry_list)) {
-    ?>
+		        <?php if(!empty($entry_list)){ ?>
 				<div class="box-body">
 		            <div class="table-responsive">
 	          	    <div class="col-md-3">
@@ -44,22 +43,21 @@ $entry_list = $wpdb->get_results("SELECT * FROM entry where vehicle_id = $id && 
 		                </tfoot>
 		                <tbody>
 		                <?php 
-                          foreach ($entry_list as $key => $value) {
-                              echo '<tr>
-	                  				<td>'.date('d-m-Y', strtotime($value['date'])).'</td>
+		                  foreach ($entry_list as $key => $value) {
+		                  	echo '<tr>
+	                  				<td>'.date('d-m-Y',strtotime($value['date'])).'</td>
                             <td>'.$value['starting_location'].'</td>
                             <td>'.$value['destination_location'].'</td>
 	                  				<td>'.$value['bill_amount'].'</td>
 		                  		</tr>';
-                          } ?> 
+		                  }?> 
 		                </tbody>
 		              </table>
 		            </div>
 		          </div>
-				<?php
-} else {
-                              echo '<blockquote><p>No Report till now!!</p></blockquote>';
-                          } ?>
+				<?php }else{
+				    echo "<blockquote><p>No Report till now!!</p></blockquote>";
+				} ?>
 			</div>
 		</div>
 	</div>
@@ -158,14 +156,14 @@ $entry_list = $wpdb->get_results("SELECT * FROM entry where vehicle_id = $id && 
                       buttons: [
                            {
                               extend: 'excelHtml5',
-                              filename: '<?php echo get_vehicle_number($id, $wpdb)['vehicle_name'].'_'.date('Y/m/d').' Report'?>',
-                              title:'<?php echo get_vehicle_number($id, $wpdb)['vehicle_name'].' Report'?>',
+                              filename: '<?php echo get_vehicle_number($id,$wpdb)['vehicle_name'].'_'.date("Y/m/d")." Report"?>',
+                              title:'<?php echo get_vehicle_number($id,$wpdb)['vehicle_name']." Report"?>',
                               footer: true
                           },
                           {
                               extend: 'pdfHtml5',
-                              filename: '<?php echo get_vehicle_number($id, $wpdb)['vehicle_name'].'_'.date('Y/m/d').' Report'?>',
-                              title: '<?php echo get_vehicle_number($id, $wpdb)['vehicle_name'].' Report'?>',
+                              filename: '<?php echo get_vehicle_number($id,$wpdb)['vehicle_name'].'_'.date("Y/m/d")." Report"?>',
+                              title: '<?php echo get_vehicle_number($id,$wpdb)['vehicle_name']." Report"?>',
             footer: true, customize: function (doc) {
            
                 doc['footer']=(function(page, pages) {
@@ -185,7 +183,7 @@ $entry_list = $wpdb->get_results("SELECT * FROM entry where vehicle_id = $id && 
                           },
                           {
                               extend: 'print',
-                              title: '<?php echo get_vehicle_number($id, $wpdb)['vehicle_name'].' Report'?>',
+                              title: '<?php echo get_vehicle_number($id,$wpdb)['vehicle_name']." Report"?>',
                               footer: true,
                           }
                     ]

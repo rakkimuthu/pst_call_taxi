@@ -1,8 +1,8 @@
 <?php 
   include_once 'header.php';
   include_once '../model/index.php';
-  $id = $_GET['id'];
-  $vehicles_list = $wpdb->get_results("SELECT * FROM vehicles where id='$id' ", ARRAY_A);
+  $id=$_GET['id'];
+  $vehicles_list = $wpdb->get_results("SELECT * FROM vehicles where id='$id' ",ARRAY_A);
   ?>
      <div class="row">
     <div class="col-xs-12">
